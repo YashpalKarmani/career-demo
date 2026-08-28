@@ -155,7 +155,7 @@
   <script src="theme.js"></script>
 </head>
 
-<body class="antialiased text-[var(--color-text)] bg-[var(--color-background)]">
+<body class="antialiased text-[var(--color-text)] bg-[var(--color-background)] overflow-x-clip">
   <div id="app-wrapper" class="w-full">
     <!-- Navbar -->
     <nav id="navbar" class="sticky top-0 z-50 w-full backdrop-blur-xl border-b border-[var(--color-border)]"
@@ -352,18 +352,18 @@
             </div>
 
             <!-- Chat Input -->
-            <div class="px-6 py-4 bg-white dark:bg-slate-800 border-t border-slate-200 dark:border-slate-700">
-              <div class="flex items-center gap-3">
+            <div class="px-4 sm:px-6 py-4 bg-white dark:bg-slate-800 border-t border-slate-200 dark:border-slate-700">
+              <div class="flex items-center gap-2 sm:gap-3">
                 <input id="chat-input" type="text" placeholder="Ask anything about your career..."
-                  class="flex-1 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-slate-900 dark:text-slate-100 placeholder-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-[#2563eb] focus:border-transparent transition-all">
+                  class="flex-1 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-slate-900 dark:text-slate-100 placeholder-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-[#2563eb] focus:border-transparent transition-all min-w-0">
                 <button id="mic-btn" type="button"
-                  class="p-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-500 dark:text-slate-400 hover:text-[#2563eb] dark:hover:text-[#3b82f6] hover:bg-slate-100 dark:hover:bg-slate-800 transition-all">
+                  class="p-2 sm:p-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-500 dark:text-slate-400 hover:text-[#2563eb] dark:hover:text-[#3b82f6] hover:bg-slate-100 dark:hover:bg-slate-800 transition-all flex-shrink-0">
                   <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
                   </svg>
                 </button>
                 <button id="send-btn"
-                  class="p-3 bg-gradient-to-r from-[#2563eb] to-[#10b981] rounded-xl text-white shadow-lg shadow-blue-500/20 hover:scale-105 transition-transform active:scale-95">
+                  class="p-2 sm:p-3 bg-gradient-to-r from-[#2563eb] to-[#10b981] rounded-xl text-white shadow-lg shadow-blue-500/20 hover:scale-105 transition-transform active:scale-95 flex-shrink-0">
                   <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                       d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />

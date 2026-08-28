@@ -169,7 +169,7 @@
   <script src="theme.js"></script>
 </head>
 
-<body class="antialiased text-[var(--color-text)] bg-[var(--color-background)]">
+<body class="antialiased text-[var(--color-text)] bg-[var(--color-background)] overflow-x-clip">
   <div id="app-wrapper" class="w-full">
     <!-- Navbar -->
     <nav id="navbar" class="sticky top-0 z-50 w-full backdrop-blur-xl border-b border-[var(--color-border)]"
@@ -625,7 +625,7 @@
             </div><!-- Chat Messages -->
             <div class="p-6 space-y-4 min-h-[300px]"><!-- User Message -->
               <div class="flex justify-end">
-                <div class="max-w-[80%] bg-[#2563eb] rounded-2xl rounded-tr-md px-4 py-3">
+                <div class="max-w-[80%] bg-[#2563eb] rounded-2xl rounded-tr-md px-4 py-3 break-words">
                   <p class="text-white text-sm">I just finished my BS in Computer Science but I'm confused between
                     software development and data science. What should I choose?</p>
                 </div>
@@ -638,7 +638,7 @@
                       d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
                 </div>
-                <div class="max-w-[80%] bg-[var(--color-background)] rounded-2xl rounded-tl-md px-4 py-3">
+                <div class="max-w-[80%] bg-[var(--color-background)] rounded-2xl rounded-tl-md px-4 py-3 break-words">
                   <p class="text-[var(--color-text)] text-sm mb-3">Great question, and congratulations on your degree!
                     🎓</p>
                   <p class="text-slate-500 dark:text-slate-400 text-sm mb-3">Based on your CS background, both paths
@@ -657,18 +657,18 @@
                 </div>
               </div>
             </div><!-- Chat Input -->
-            <div class="px-6 py-4 bg-[var(--color-background)] border-t border-[var(--color-border)]">
-              <div class="flex items-center gap-3"><input type="text" placeholder="Ask anything about your career..."
-                  class="flex-1 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-xl px-4 py-3 text-[var(--color-text)] placeholder-[#4b5563] text-sm focus:outline-none focus:border-[rgb(37,99,235)]"
+            <div class="px-4 sm:px-6 py-4 bg-[var(--color-background)] border-t border-[var(--color-border)]">
+              <div class="flex items-center gap-2 sm:gap-3"><input type="text" placeholder="Ask anything about your career..."
+                  class="flex-1 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-xl px-4 py-3 text-[var(--color-text)] placeholder-[#4b5563] text-sm focus:outline-none focus:border-[rgb(37,99,235)] min-w-0"
                   disabled> 
                 <button type="button"
-                  class="p-3 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-xl text-slate-500 dark:text-slate-400 cursor-not-allowed">
+                  class="p-2 sm:p-3 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-xl text-slate-500 dark:text-slate-400 cursor-not-allowed flex-shrink-0">
                   <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
                   </svg>
                 </button>
                 <button
-                  class="p-3 bg-[#216FDB]/50 rounded-xl text-slate-500 dark:text-slate-400 cursor-not-allowed">
+                  class="p-2 sm:p-3 bg-[#216FDB]/50 rounded-xl text-slate-500 dark:text-slate-400 cursor-not-allowed flex-shrink-0">
                   <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                       d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />

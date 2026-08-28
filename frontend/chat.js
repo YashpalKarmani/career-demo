@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (role === 'user') {
             msgDiv.innerHTML = `
-                <div class="max-w-[80%] bg-[#2563eb] rounded-2xl rounded-tr-md px-4 py-3 shadow-sm">
+                <div class="max-w-[80%] bg-[#2563eb] rounded-2xl rounded-tr-md px-4 py-3 shadow-sm break-words">
                     <p class="text-white text-sm">${text}</p>
                 </div>
             `;
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
                     </svg>
                 </div>
-                <div class="max-w-[80%] bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl rounded-tl-md px-4 py-3 shadow-sm">
+                <div class="max-w-[80%] bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl rounded-tl-md px-4 py-3 shadow-sm break-words">
                     <p class="text-slate-800 dark:text-slate-200 text-sm whitespace-pre-wrap">${text}</p>
                 </div>
             `;
