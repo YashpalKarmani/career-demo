@@ -1,0 +1,1103 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Careerly - Smart Career Guidance for Your Future</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#2563eb',
+            secondary: '#10b981',
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="src/output.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --color-background: #f9fafb;
+      --color-surface: #ffffff;
+      --color-text: #1f2937;
+      --color-primary: #2563eb;
+      --color-secondary: #10b981;
+      --color-border: #e5e7eb;
+    }
+
+    * {
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      box-sizing: border-box;
+      background-color: var(--color-background);
+      color: var(--color-text);
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: var(--color-text);
+    }
+
+    .gradient-border {
+      position: relative;
+    }
+
+    .gradient-border::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+    }
+
+    .glow-effect {
+      box-shadow: 0 0 60px rgba(99, 102, 241, 0.3), 0 0 100px rgba(34, 211, 238, 0.2);
+    }
+
+    .card-hover {
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .card-hover:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 50px -12px rgba(99, 102, 241, 0.25);
+    }
+
+    .animate-float {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-20px);
+      }
+    }
+
+    .animate-pulse-slow {
+      animation: pulse-slow 4s ease-in-out infinite;
+    }
+
+    @keyframes pulse-slow {
+
+      0%,
+      100% {
+        opacity: 0.4;
+      }
+
+      50% {
+        opacity: 0.8;
+      }
+    }
+
+    .chat-bubble {
+      animation: slideIn 0.5s ease-out;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .scroll-smooth {
+      scroll-behavior: smooth;
+    }
+
+    .nav-link {
+      position: relative;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .nav-link.active-link::after {
+      width: 100%;
+    }
+  </style>
+  <style>
+    @view-transition {
+      navigation: auto;
+    }
+  </style>
+  <script src="theme.js"></script>
+</head>
+
+<body class="antialiased text-[var(--color-text)] bg-[var(--color-background)]">
+  <div id="app-wrapper" class="w-full">
+    <!-- Navbar -->
+    <nav id="navbar" class="sticky top-0 z-50 w-full backdrop-blur-xl border-b border-[var(--color-border)]"
+      style="background-color: var(--color-background);">
+      <div id="scroll-indicator"
+        class="h-1 w-0 bg-gradient-to-r from-[#2563eb] to-[#10b981] absolute bottom-[-1px] left-0 z-[60] transition-all duration-75">
+      </div>
+      <div class="w-full mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16 lg:h-20">
+          <!-- Logo -->
+          <div class="flex items-center">
+            <img src="logo.png" alt="Careerly Logo" class="w-20 h-10 rounded-xl object-cover">
+            <div><span class="text-xl font-bold text-[var(--color-text)]">Careerly</span>
+              <p class="text-xs text-slate-500 dark:text-slate-400 hidden xl:block">Smart Career Guidance</p>
+            </div>
+          </div>
+          <!-- Desktop Navigation -->
+          <div class="hidden lg:flex items-center gap-5"><a href="index.html"
+              class="nav-link text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-[#10b981] transition-colors">Home</a>
+            <a href="about.html"
+              class="nav-link text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-[#10b981] transition-colors">About
+              Us</a> <a href="services.html"
+              class="nav-link text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-[#10b981] transition-colors">Services</a>
+            <a href="how-it-works.html"
+              class="nav-link text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-[#10b981] transition-colors">How
+              It
+              Works</a> <a href="resources.html"
+              class="nav-link text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-[#10b981] transition-colors">Resources</a>
+            <a href="ai-counselor.html"
+              class="nav-link text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-[#10b981] transition-colors flex items-center gap-1">
+              AI Counselor </a> <a href="contact.html"
+              class="nav-link text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-[#10b981] transition-colors">Contact</a>
+          </div>
+          <!-- Dark Mode Toggle and CTA Button -->
+          <div class="hidden lg:flex items-center gap-4">
+            <!-- Dark Mode Toggle -->
+            <button id="dark-mode-toggle"
+              class="p-2 rounded-lg bg-[var(--color-surface)] text-[var(--color-text)] hover:bg-[#d1d5db] transition-colors shadow-sm">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+              </svg>
+            </button>
+            <a href="ai-counselor.html" id="nav-cta"
+              class="px-6 py-2.5 bg-[#2563eb] hover:bg-gradient-to-r hover:from-[#2563eb] hover:to-[#10b981] text-white text-sm font-semibold rounded-xl transition-all duration-300 shadow-lg shadow-[#2563eb]/25 hover:shadow-[#2563eb]/40 inline-block">
+              Get Started Free
+            </a>
+          </div>
+          <!-- Mobile Menu Button -->
+          <div class="flex items-center gap-2 lg:hidden">
+            <!-- Dark Mode Toggle for Mobile -->
+            <button id="dark-mode-toggle-mobile"
+              class="p-2 rounded-lg bg-[var(--color-surface)] text-[var(--color-text)]">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+              </svg>
+            </button>
+            <button id="mobile-menu-btn" class="p-2 rounded-lg bg-[var(--color-surface)] text-[var(--color-text)]">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="hidden lg:hidden bg-[var(--color-background)] border-t border-[var(--color-border)]">
+        <div class="px-6 py-6 space-y-5">
+
+          <a href="index.html"
+            class="block text-base font-medium text-[var(--color-text)] hover:text-[#10b981] transition-colors">
+            Home
+          </a>
+
+          <a href="about.html"
+            class="block text-base font-medium text-slate-500 dark:text-slate-400 hover:text-[#10b981] transition-colors">
+            About Us
+          </a>
+
+          <a href="services.html"
+            class="block text-base font-medium text-slate-500 dark:text-slate-400 hover:text-[#10b981] transition-colors">
+            Services
+          </a>
+
+          <a href="how-it-works.html"
+            class="block text-base font-medium text-slate-500 dark:text-slate-400 hover:text-[#10b981] transition-colors">
+            How It Works
+          </a>
+
+          <a href="resources.html"
+            class="block text-base font-medium text-slate-500 dark:text-slate-400 hover:text-[#10b981] transition-colors">
+            Resources
+          </a>
+
+          <a href="ai-counselor.html"
+            class="flex items-center gap-1 text-base font-medium text-slate-500 dark:text-slate-400 hover:text-[#10b981] transition-colors">
+            AI Counselor
+          </a>
+
+          <a href="contact.html"
+            class="block text-base font-medium text-slate-500 dark:text-slate-400 hover:text-[#10b981] transition-colors">
+            Contact
+          </a>
+
+          <!-- Mobile CTA (Desktop style clone) -->
+          <a href="ai-counselor.html" class="w-full mt-6 px-6 py-3
+             bg-[#2563eb]
+             hover:bg-gradient-to-r hover:from-[#2563eb] hover:to-[#10b981]
+             text-white font-semibold rounded-xl
+             transition-all duration-300
+             shadow-lg shadow-[#2563eb]/25 hover:shadow-[#2563eb]/40 text-center inline-block">
+            Start Your Career Journey
+          </a>
+
+        </div>
+      </div>
+    </nav>
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center pt-20 lg:pt-0 overflow-hidden">
+      <!-- Background Elements -->
+      <div class="absolute inset-0 overflow-hidden">
+        <div class="absolute top-1/4 -left-20 w-96 h-96 bg-[#2563eb]/20 rounded-full blur-3xl animate-pulse-slow"></div>
+        <div class="absolute bottom-1/4 -right-20 w-96 h-96 bg-[#10b981]/20 rounded-full blur-3xl animate-pulse-slow"
+          style="animation-delay: 2s;"></div>
+        <div
+          class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-br from-[#2563eb]/10 to-[#10b981]/10 rounded-full blur-3xl">
+        </div>
+      </div>
+      <div class="relative w-full mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-24">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <!-- Content -->
+          <div class="text-center lg:text-left">
+            <div
+              class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-200 dark:bg-slate-700 border border-[var(--color-border)] dark:border-slate-600 mb-6">
+              <span class="w-2 h-2 rounded-full bg-[#10b981] animate-pulse"></span>
+              <span class="text-sm text-slate-500 dark:text-slate-400">AI-Powered Career Guidance</span>
+            </div>
+            <h1 id="hero-headline"
+              class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-6 w-full max-w-[90vw] sm:max-w-[450px] lg:max-w-xl mx-auto lg:mx-0 text-balance">
+              <span class="text-[var(--color-text)]">Find Career </span>
+              <span class="text-[var(--color-primary)]">Clarity</span> <br class="hidden sm:block" />
+              <span class="text-[var(--color-text)]"> in a World of </span>
+              <span class="text-[var(--color-primary)]">Possibilities</span>
+            </h1>
+            <p id="hero-subheadline" class="text-lg sm:text-xl text-slate-500 dark:text-slate-400 mb-4 font-medium">
+              Personalized guidance meets intelligent recommendations.</p>
+            <p class="text-base text-slate-600 dark:text-slate-300 mb-8 max-w-xl mx-auto lg:mx-0">Feeling overwhelmed by
+              career choices? You're not alone. Careerly helps students and fresh graduates discover their true
+              potential with expert-backed assessments and personalized career paths with AI-powered insights.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <a href="ai-counselor.html" id="hero-primary-cta"
+                class="group px-8 py-4 bg-gradient-to-r from-[#2563eb] to-[#2563eb] hover:from-[#2563eb] hover:to-[#10b981] text-white font-bold rounded-2xl transition-all duration-300 shadow-xl shadow-[#2563eb]/30 hover:shadow-[#2563eb]/50 flex items-center justify-center gap-2">Get
+                Started Free</a>
+              <a href="services.html" id="hero-secondary-cta"
+                class="px-8 py-4 bg-[var(--color-surface)] hover:bg-[#444445] text-[var(--color-text)] font-semibold rounded-2xl transition-all duration-300 border border-[var(--color-border)] hover:border-[#2563eb]/50 flex items-center justify-center gap-2">
+                <svg class="w-5 h-5 text-[#10b981]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+                </svg> Explore Career Paths
+              </a>
+            </div>
+            <!-- Trust Indicators -->
+            <div class="mt-12 flex flex-wrap items-center justify-center lg:justify-start gap-8">
+              <div class="flex items-center gap-2">
+                <div class="flex -space-x-2"><img
+                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&amp;h=100&amp;fit=crop&amp;crop=faces"
+                    alt="Student 1" class="w-8 h-8 rounded-full border-2 border-[#f9fafb] object-cover" loading="lazy"
+                    onerror="console.error('Image failed to load:', this.src); this.style.background='linear-gradient(to br, #f472b6, #ec4899)'; this.alt='Image unavailable'; this.src='';">
+                  <img
+                    src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&amp;h=100&amp;fit=crop&amp;crop=faces"
+                    alt="Student 2" class="w-8 h-8 rounded-full border-2 border-[#f9fafb] object-cover" loading="lazy"
+                    onerror="console.error('Image failed to load:', this.src); this.style.background='linear-gradient(to br, #60a5fa, #3b82f6)'; this.alt='Image unavailable'; this.src='';">
+                  <img
+                    src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&amp;h=100&amp;fit=crop&amp;crop=faces"
+                    alt="Student 3" class="w-8 h-8 rounded-full border-2 border-[#f9fafb] object-cover" loading="lazy"
+                    onerror="console.error('Image failed to load:', this.src); this.style.background='linear-gradient(to br, #4ade80, #22c55e)'; this.alt='Image unavailable'; this.src='';">
+                  <img
+                    src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&amp;h=100&amp;fit=crop&amp;crop=faces"
+                    alt="Student 4" class="w-8 h-8 rounded-full border-2 border-[#f9fafb] object-cover" loading="lazy"
+                    onerror="console.error('Image failed to load:', this.src); this.style.background='linear-gradient(to br, #fbbf24, #f59e0b)'; this.alt='Image unavailable'; this.src='';">
+                </div><span class="text-sm text-slate-500 dark:text-slate-400"><strong
+                    class="text-[var(--color-text)]">2,500+</strong> Students
+                  Guided</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewbox="0 0 20 20">
+                  <path
+                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg><span class="text-sm text-slate-500 dark:text-slate-400"><strong
+                    class="text-[var(--color-text)]">4.9/5</strong> User
+                  Rating</span>
+              </div>
+            </div>
+          </div><!-- Hero Visual -->
+          <div class="relative hidden lg:block">
+            <div class="relative z-10 ">
+              <!-- Main Card -->
+              <div
+                class="bg-[var(--color-surface)]/80 dark:bg-slate-800/80 backdrop-blur-xl rounded-3xl p-8 border border-[var(--color-border)] ">
+                <div class="flex items-center gap-4 mb-6">
+                  <div
+                    class="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#2563eb] to-[#10b981] flex items-center justify-center">
+                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 class="text-xl font-bold text-[var(--color-text)]">Career Match Score</h3>
+                    <p class="text-sm text-slate-600 dark:text-slate-300">Based on your assessment</p>
+                  </div>
+                </div><!-- Career Matches -->
+                <div class="space-y-4">
+                  <div class="flex items-center justify-between p-4 bg-[var(--color-background)] rounded-xl">
+                    <div class="flex items-center gap-3">
+                      <div class="w-10 h-10 rounded-xl bg-[#2563eb]/20 flex items-center justify-center"><span
+                          class="text-lg">💻</span>
+                      </div><span class="font-medium text-[var(--color-text)]">Software Developer</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                      <div class="w-20 h-2 bg-[#d1d5db] rounded-full overflow-hidden">
+                        <div class="w-[92%] h-full bg-gradient-to-r from-[#2563eb] to-[#10b981] rounded-full"></div>
+                      </div><span class="text-sm font-bold text-[#10b981]">92%</span>
+                    </div>
+                  </div>
+                  <div class="flex items-center justify-between p-4 bg-[var(--color-background)] rounded-xl">
+                    <div class="flex items-center gap-3">
+                      <div class="w-10 h-10 rounded-xl bg-[#2563eb]/20 flex items-center justify-center"><span
+                          class="text-lg">📊</span>
+                      </div><span class="font-medium text-[var(--color-text)]">Data Analyst</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                      <div class="w-20 h-2 bg-[#d1d5db] rounded-full overflow-hidden">
+                        <div class="w-[87%] h-full bg-gradient-to-r from-[#2563eb] to-[#10b981] rounded-full"></div>
+                      </div><span class="text-sm font-bold text-[#10b981]">87%</span>
+                    </div>
+                  </div>
+                  <div class="flex items-center justify-between p-4 bg-[var(--color-background)] rounded-xl">
+                    <div class="flex items-center gap-3">
+                      <div class="w-10 h-10 rounded-xl bg-[#2563eb]/20 flex items-center justify-center"><span
+                          class="text-lg">🎨</span>
+                      </div><span class="font-medium text-[var(--color-text)]">UX Designer</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                      <div class="w-20 h-2 bg-[#d1d5db] rounded-full overflow-hidden">
+                        <div class="w-[78%] h-full bg-gradient-to-r from-[#2563eb] to-[#10b981] rounded-full"></div>
+                      </div><span class="text-sm font-bold text-[#10b981]">78%</span>
+                    </div>
+                  </div>
+                </div>
+              </div><!-- Floating Elements -->
+              <div
+                class="absolute -top-6 -right-6 bg-[var(--color-surface)] rounded-2xl p-4 border border-[var(--color-border)] shadow-xl"">
+                <div class=" flex items-center gap-2">
+                <div class="w-8 h-8 rounded-lg bg-green-500/20 flex items-center justify-center">
+                  <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                </div><span class="text-sm font-medium text-[var(--color-text)]">Assessment Complete!</span>
+              </div>
+            </div>
+            <div
+              class="absolute -bottom-4 -left-8 bg-[var(--color-surface)] rounded-2xl p-4 border border-[var(--color-border)] shadow-xl">
+              <div class="flex items-center gap-2">
+                <div class="w-8 h-8 rounded-lg bg-[#2563eb]/20 flex items-center justify-center">
+                  <svg class="w-5 h-5 text-[#2563eb]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                  </svg>
+                </div><span class="text-sm font-medium text-[var(--color-text)]">Skills Growing</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div><!-- Scroll Indicator -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce"><span
+      class="text-xs text-slate-500 dark:text-slate-400">Scroll to explore</span>
+    <svg class="w-5 h-5 text-[#2563eb]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+    </svg>
+  </div>
+  </section><!-- Features Section -->
+  <section id="services" class="py-20 lg:py-32 relative">
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#2563eb]/5 to-transparent"></div>
+    <div class="relative w-full mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div
+          class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--color-surface)] border border-[var(--color-border)] mb-6">
+          <span class="text-sm text-slate-500 dark:text-slate-400">Why Choose Careerly</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--color-text)] mb-6">Everything You Need to
+          <span class="text-[#236CE1]">Navigate</span> Your <span class="text-[#236CE1]"> Career</span>
+        </h2>
+        <p class="text-lg text-slate-600 dark:text-slate-300">From self-discovery assessments to AI-powered insights,
+          we provide the tools
+          you need to make confident career decisions.</p>
+      </div><!-- Feature Cards -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Feature 1 -->
+        <div
+          class="card-hover group p-8 bg-[var(--color-surface)] rounded-3xl border border-[var(--color-border)] hover:border-[#2563eb]/50">
+          <div
+            class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#2563eb] to-[#2563eb]/50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-[var(--color-text)] mb-3">Personalized Career Assessments</h3>
+          <p class="text-slate-600 dark:text-slate-300 leading-relaxed">Discover your unique strengths, interests, and
+            values through
+            scientifically-backed assessments designed to reveal your ideal career paths.</p>
+          <a href="ai-counselor.html"
+            class="mt-6 flex items-center text-[#2563eb] font-medium text-sm group-hover:text-[#10b981] transition-colors">
+            Take Assessment
+          </a>
+        </div><!-- Feature 2 -->
+        <div
+          class="card-hover group p-8 bg-[var(--color-surface)] rounded-3xl border border-[var(--color-border)] hover:border-[#414796]/50 relative overflow-hidden">
+          <div class="absolute top-4 right-4"></div>
+          <div
+            class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#10b981] to-[#10b981]/50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-[var(--color-text)] mb-3">AI-Powered Recommendations</h3>
+          <p class="text-slate-600 dark:text-slate-300 leading-relaxed">Our AI counselor will analyze your profile and
+            market trends to
+            suggest careers you'll love and that are in demand.</p>
+          <a href="ai-counselor.html"
+            class="mt-6 flex items-center text-[#2563eb] font-medium text-sm group-hover:text-[#10b981] transition-colors">
+            Explore AI Guidance
+          </a>
+        </div><!-- Feature 3 -->
+        <div
+          class="card-hover group p-8 bg-[var(--color-surface)] rounded-3xl border border-[var(--color-border)] hover:border-[#2563eb]/50">
+          <div
+            class="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-500 to-purple-500/50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-[var(--color-text)] mb-3">Trusted Career Resources</h3>
+          <p class="text-slate-600 dark:text-slate-300 leading-relaxed">Access curated guides, industry insights, and
+            expert advice to
+            help you understand different career paths and make informed decisions.</p>
+          <a href="resources.html"
+            class="mt-6 flex items-center text-[#2563eb] font-medium text-sm group-hover:text-[#10b981] transition-colors">
+            Browse Resources
+          </a>
+        </div><!-- Feature 4 -->
+        <div
+          class="card-hover group p-8 bg-[var(--color-surface)] rounded-3xl border border-[var(--color-border)] hover:border-[#2563eb]/50">
+          <div
+            class="w-14 h-14 rounded-2xl bg-gradient-to-br from-green-500 to-green-500/50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-[var(--color-text)] mb-3">Built for Growth</h3>
+          <p class="text-slate-600 dark:text-slate-300 leading-relaxed">Your journey doesn't end with one decision. We
+            help you plan for
+            continuous growth with skill development paths and milestone tracking.</p>
+          <a href="how-it-works.html"
+            class="mt-6 flex items-center text-[#2563eb] font-medium text-sm group-hover:text-[#10b981] transition-colors">
+            Plan Your Growth
+          </a>
+        </div>
+      </div>
+    </div>
+  </section><!-- How AI Agent Works -->
+  <section id="ai-counselor" class="py-20 lg:py-32 relative">
+    <div class="w-full mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center"><!-- Content -->
+        <div>
+          <div
+            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-200 dark:bg-slate-700 border border-[var(--color-border)] dark:border-slate-600 mb-6">
+            <span class="w-2 h-2 rounded-full bg-[#10b981] animate-pulse"></span> <span
+              class="text-sm text-slate-500 dark:text-slate-400">AI Technology Preview</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--color-text)] mb-6">Meet Your Future <span
+              class="text-[#2563EB]">AI Career Counselor</span></h2>
+          <p class="text-lg text-slate-600 dark:text-slate-300 mb-8">We're bringing you an intelligent AI assistant
+            that understands your
+            unique situation and provides personalized guidance available 24/7. Here's how it will work:</p>
+          <!-- Steps -->
+          <div class="space-y-6">
+            <div class="flex gap-4">
+              <div class="flex-shrink-0 w-12 h-12 rounded-2xl bg-[#2563eb]/20 flex items-center justify-center"><span
+                  class="text-xl font-bold text-[#2563eb]">1</span>
+              </div>
+              <div>
+                <h4 class="text-lg font-bold text-[var(--color-text)] mb-1">Share Your Story</h4>
+                <p class="text-slate-600 dark:text-slate-300">Tell the AI about your education, interests, skills, and
+                  career concerns in
+                  a natural conversation.</p>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <div class="flex-shrink-0 w-12 h-12 rounded-2xl bg-[#2563eb]/20 flex items-center justify-center"><span
+                  class="text-xl font-bold text-[#2563eb]">2</span>
+              </div>
+              <div>
+                <h4 class="text-lg font-bold text-[var(--color-text)] mb-1">AI Analyzes &amp; Matches</h4>
+                <p class="text-slate-600 dark:text-slate-300">Our AI processes your profile against thousands of
+                  career paths, market
+                  trends, and success patterns.</p>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <div class="flex-shrink-0 w-12 h-12 rounded-2xl bg-[#2563eb]/20 flex items-center justify-center"><span
+                  class="text-xl font-bold text-[#2563eb]">3</span>
+              </div>
+              <div>
+                <h4 class="text-lg font-bold text-[var(--color-text)] mb-1">Get Personalized Guidance</h4>
+                <p class="text-slate-600 dark:text-slate-300">Receive tailored career recommendations, skill roadmaps,
+                  and actionable next
+                  steps.</p>
+              </div>
+            </div>
+          </div>
+        </div><!-- Chat Preview -->
+        <div class="relative">
+          <div class="absolute inset-0 bg-gradient-to-br from-[#2563eb]/20 to-[#10b981]/20 rounded-3xl blur-3xl">
+          </div>
+          <div
+            class="relative bg-[var(--color-surface)] rounded-3xl border border-[var(--color-border)] overflow-hidden">
+            <!-- Chat Header -->
+            <div
+              class="px-6 py-4 bg-[var(--color-background)] border-b border-[var(--color-border)] flex items-center gap-3">
+              <div
+                class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#2563eb] to-[#10b981] flex items-center justify-center">
+                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-[var(--color-text)]">Careerly AI</h4>
+                <p class="text-xs text-slate-600 dark:text-slate-300">Your Personal Career Guide</p>
+              </div>
+              <div class="ml-auto flex items-center gap-1"><span
+                  class="w-2 h-2 rounded-full bg-[#10b981] animate-pulse"></span> <span
+                  class="text-xs text-[#10b981]">Preview</span>
+              </div>
+            </div><!-- Chat Messages -->
+            <div class="p-6 space-y-4 min-h-[300px]"><!-- User Message -->
+              <div class="flex justify-end">
+                <div class="max-w-[80%] bg-[#2563eb] rounded-2xl rounded-tr-md px-4 py-3">
+                  <p class="text-white text-sm">I just finished my BS in Computer Science but I'm confused between
+                    software development and data science. What should I choose?</p>
+                </div>
+              </div><!-- AI Response -->
+              <div class="flex gap-3">
+                <div
+                  class="flex-shrink-0 w-8 h-8 rounded-lg bg-gradient-to-br from-[#2563eb] to-[#10b981] flex items-center justify-center">
+                  <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                </div>
+                <div class="max-w-[80%] bg-[var(--color-background)] rounded-2xl rounded-tl-md px-4 py-3">
+                  <p class="text-[var(--color-text)] text-sm mb-3">Great question, and congratulations on your degree!
+                    🎓</p>
+                  <p class="text-slate-500 dark:text-slate-400 text-sm mb-3">Based on your CS background, both paths
+                    are excellent! Let me
+                    help you decide:</p>
+                  <div class="space-y-2 text-sm text-slate-500 dark:text-slate-400">
+                    <p>📊 <strong class="text-[var(--color-text)]">Data Science</strong> might suit you if you love
+                      finding
+                      patterns, enjoy statistics, and want to solve business problems.</p>
+                    <p>💻 <strong class="text-[var(--color-text)]">Software Development</strong> could be better if
+                      you enjoy
+                      building things, problem-solving, and seeing immediate results.</p>
+                  </div>
+                  <p class="text-[#10b981] text-sm mt-3">Would you like to take a quick assessment to see which aligns
+                    better with your strengths?</p>
+                </div>
+              </div>
+            </div><!-- Chat Input -->
+            <div class="px-6 py-4 bg-[var(--color-background)] border-t border-[var(--color-border)]">
+              <div class="flex items-center gap-3"><input type="text" placeholder="Ask anything about your career..."
+                  class="flex-1 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-xl px-4 py-3 text-[var(--color-text)] placeholder-[#4b5563] text-sm focus:outline-none focus:border-[rgb(37,99,235)]"
+                  disabled> 
+                <button type="button"
+                  class="p-3 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-xl text-slate-500 dark:text-slate-400 cursor-not-allowed">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+                  </svg>
+                </button>
+                <button
+                  class="p-3 bg-[#216FDB]/50 rounded-xl text-slate-500 dark:text-slate-400 cursor-not-allowed">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                  </svg></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section><!-- Testimonials -->
+  <section id="about" class="py-20 lg:py-32 relative">
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#2563eb]/5 to-transparent"></div>
+    <div class="relative w-full mx-auto px-4 sm:px-6 lg:px-8"><!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div
+          class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--color-surface)] border border-[var(--color-border)] mb-6">
+          <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewbox="0 0 20 20">
+            <path
+              d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+          </svg><span class="text-sm text-slate-500 dark:text-slate-400">Trusted by Students Across Pakistan</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--color-text)] mb-6">Real Stories of <span
+            class="text-[#2563EB]">Career Transformation</span></h2>
+        <p class="text-lg text-slate-600 dark:text-slate-300">See how Careerly has helped students and graduates find
+          their path</p>
+      </div><!-- Testimonial Cards -->
+      <div class="grid md:grid-cols-3 gap-8"><!-- Testimonial 1 -->
+        <div class="card-hover bg-[var(--color-surface)] rounded-3xl p-8 border border-[var(--color-border)]">
+          <div class="flex items-center gap-1 mb-6">
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewbox="0 0 20 20">
+              <path
+                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+            </svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewbox="0 0 20 20">
+              <path
+                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+            </svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewbox="0 0 20 20">
+              <path
+                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+            </svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewbox="0 0 20 20">
+              <path
+                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+            </svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewbox="0 0 20 20">
+              <path
+                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+            </svg>
+          </div>
+          <p class="text-slate-500 dark:text-slate-400 mb-6 leading-relaxed">"I was completely lost after my FSc.
+            Everyone said 'do
+            engineering' but Careerly's assessment showed my strengths were in creative problem-solving. Now I'm
+            pursuing UX Design and loving every moment!"</p>
+          <div class="flex items-center gap-4"><img
+              src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&amp;h=150&amp;fit=crop&amp;crop=faces"
+              alt="Fatima Ahmed" class="w-12 h-12 rounded-full object-cover border-2 border-[var(--color-border)]"
+              loading="lazy"
+              onerror="console.error('Image failed to load:', this.src); this.style.background='linear-gradient(135deg, #f472b6, #ec4899)'; this.alt='Image unavailable'; this.src='';">
+            <div>
+              <h4 class="font-semibold text-[var(--color-text)]">Fatima Ahmed</h4>
+              <p class="text-sm text-slate-600 dark:text-slate-300">UX Design Student, Lahore</p>
+            </div>
+          </div>
+        </div><!-- Testimonial 2 -->
+        <div class="card-hover bg-[var(--color-surface)] rounded-3xl p-8 border border-[var(--color-border)]">
+          <div class="flex items-center gap-1 mb-6">
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewbox="0 0 20 20">
+              <path
+                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+            </svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewbox="0 0 20 20">
+              <path
+                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+            </svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewbox="0 0 20 20">
+              <path
+                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+            </svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewbox="0 0 20 20">
+              <path
+                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+            </svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewbox="0 0 20 20">
+              <path
+                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+            </svg>
+          </div>
+          <p class="text-slate-500 dark:text-slate-400 mb-6 leading-relaxed">"As a fresh CS graduate, I was
+            overwhelmed by job options.
+            Careerly helped me understand the data science path clearly. The resources and roadmap they provided were
+            incredibly helpful!"</p>
+          <div class="flex items-center gap-4"><img
+              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&amp;h=150&amp;fit=crop&amp;crop=faces"
+              alt="Hassan Ali" class="w-12 h-12 rounded-full object-cover border-2 border-[var(--color-border)]"
+              loading="lazy"
+              onerror="console.error('Image failed to load:', this.src); this.style.background='linear-gradient(135deg, #60a5fa, #3b82f6)'; this.alt='Image unavailable'; this.src='';">
+            <div>
+              <h4 class="font-semibold text-[var(--color-text)]">Hassan Ali</h4>
+              <p class="text-sm text-slate-600 dark:text-slate-300">Data Analyst, Karachi</p>
+            </div>
+          </div>
+        </div><!-- Testimonial 3 -->
+        <div class="card-hover bg-[var(--color-surface)] rounded-3xl p-8 border border-[var(--color-border)]">
+          <div class="flex items-center gap-1 mb-6">
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewbox="0 0 20 20">
+              <path
+                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+            </svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewbox="0 0 20 20">
+              <path
+                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+            </svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewbox="0 0 20 20">
+              <path
+                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+            </svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewbox="0 0 20 20">
+              <path
+                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+            </svg>
+            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewbox="0 0 20 20">
+              <path
+                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+            </svg>
+          </div>
+          <p class="text-slate-500 dark:text-slate-400 mb-6 leading-relaxed">"My parents wanted me in medicine, but my
+            heart wasn't in it.
+            Careerly helped me have a data-backed conversation with them about pursuing business management. Best
+            decision ever!"</p>
+          <div class="flex items-center gap-4"><img
+              src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&amp;h=150&amp;fit=crop&amp;crop=faces"
+              alt="Ayesha Khan" class="w-12 h-12 rounded-full object-cover border-2 border-[var(--color-border)]"
+              loading="lazy"
+              onerror="console.error('Image failed to load:', this.src); this.style.background='linear-gradient(135deg, #4ade80, #22c55e)'; this.alt='Image unavailable'; this.src='';">
+            <div>
+              <h4 class="font-semibold text-[var(--color-text)]">Ayesha Khan</h4>
+              <p class="text-sm text-slate-600 dark:text-slate-300">MBA Student, Islamabad</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Popular Career Paths -->
+  <section id="resources" class="py-20 lg:py-32 relative">
+    <div class="w-full mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div
+          class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--color-surface)] border border-[var(--color-border)] mb-6">
+          <span class="text-sm text-slate-500 dark:text-slate-400">Explore Opportunities</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--color-text)] mb-6">Popular <span
+            class="text-[#2563EB]">Career Paths</span></h2>
+        <p class="text-lg text-slate-600 dark:text-slate-300">Discover career fields that match your interests and
+          offer growth potential
+          in today's job market</p>
+      </div>
+      <!-- Career Path Cards -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Technology & IT -->
+        <div
+          class="card-hover group relative bg-[var(--color-surface)] rounded-3xl p-8 border border-[var(--color-border)] overflow-hidden">
+          <div
+            class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-500/20 to-transparent rounded-bl-full">
+          </div>
+          <div class="relative">
+            <div
+              class="w-16 h-16 rounded-2xl bg-blue-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <span class="text-3xl">💻</span>
+            </div>
+            <h3 class="text-xl font-bold text-[var(--color-text)] mb-3">Technology &amp; IT</h3>
+            <p class="text-slate-600 dark:text-slate-300 mb-6 leading-relaxed">From software development to
+              cybersecurity, explore the
+              fastest-growing sector with endless possibilities.</p><button
+              class="flex items-center text-blue-400 font-medium text-sm group-hover:text-[#10b981] transition-colors">
+              Explore Careers
+            </button>
+          </div>
+        </div>
+        <!-- Business & Management -->
+        <div
+          class="card-hover group relative bg-[var(--color-surface)] rounded-3xl p-8 border border-[var(--color-border)] overflow-hidden">
+          <div
+            class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-green-500/20 to-transparent rounded-bl-full">
+          </div>
+          <div class="relative">
+            <div
+              class="w-16 h-16 rounded-2xl bg-green-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <span class="text-3xl">📈</span>
+            </div>
+            <h3 class="text-xl font-bold text-[var(--color-text)] mb-3">Business &amp; Management</h3>
+            <p class="text-slate-600 dark:text-slate-300 mb-6 leading-relaxed">Lead teams, drive strategy, and shape
+              organizations.
+              Perfect for natural leaders and strategic thinkers.</p><button
+              class="flex items-center text-green-400 font-medium text-sm group-hover:text-[#10b981] transition-colors">
+              Explore Careers
+            </button>
+          </div>
+        </div>
+        <!-- Healthcare & Medical -->
+        <div
+          class="card-hover group relative bg-[var(--color-surface)] rounded-3xl p-8 border border-[var(--color-border)] overflow-hidden">
+          <div
+            class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-red-500/20 to-transparent rounded-bl-full">
+          </div>
+          <div class="relative">
+            <div
+              class="w-16 h-16 rounded-2xl bg-red-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <span class="text-3xl">🏥</span>
+            </div>
+            <h3 class="text-xl font-bold text-[var(--color-text)] mb-3">Healthcare &amp; Medical</h3>
+            <p class="text-slate-600 dark:text-slate-300 mb-6 leading-relaxed">Make a difference in people's lives.
+              Explore paths from
+              clinical practice to healthcare technology.</p><button
+              class="flex items-center text-red-400 font-medium text-sm group-hover:text-[#10b981] transition-colors">
+              Explore Careers
+            </button>
+          </div>
+        </div>
+        <!-- Creative & Design -->
+        <div
+          class="card-hover group relative bg-[var(--color-surface)] rounded-3xl p-8 border border-[var(--color-border)] overflow-hidden">
+          <div
+            class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-pink-500/20 to-transparent rounded-bl-full">
+          </div>
+          <div class="relative">
+            <div
+              class="w-16 h-16 rounded-2xl bg-pink-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <span class="text-3xl">🎨</span>
+            </div>
+            <h3 class="text-xl font-bold text-[var(--color-text)] mb-3">Creative &amp; Design</h3>
+            <p class="text-slate-600 dark:text-slate-300 mb-6 leading-relaxed">Transform ideas into visuals. From
+              graphic design to
+              content creation, express your creativity professionally.</p><button
+              class="flex items-center text-pink-400 font-medium text-sm group-hover:text-[#10b981] transition-colors">
+              Explore Careers
+            </button>
+          </div>
+        </div><!-- Engineering -->
+        <div
+          class="card-hover group relative bg-[var(--color-surface)] rounded-3xl p-8 border border-[var(--color-border)] overflow-hidden">
+          <div
+            class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-yellow-500/20 to-transparent rounded-bl-full">
+          </div>
+          <div class="relative">
+            <div
+              class="w-16 h-16 rounded-2xl bg-yellow-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <span class="text-3xl">⚙️</span>
+            </div>
+            <h3 class="text-xl font-bold text-[var(--color-text)] mb-3">Engineering</h3>
+            <p class="text-slate-600 dark:text-slate-300 mb-6 leading-relaxed">Build the future. From civil to
+              electrical, mechanical to
+              chemical – engineering shapes our world.</p><button
+              class="flex items-center text-yellow-400 font-medium text-sm group-hover:text-[#10b981] transition-colors">
+              Explore Careers
+            </button>
+          </div>
+        </div><!-- Education & Social Sciences -->
+        <div
+          class="card-hover group relative bg-[var(--color-surface)] rounded-3xl p-8 border border-[var(--color-border)] overflow-hidden">
+          <div
+            class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-purple-500/20 to-transparent rounded-bl-full">
+          </div>
+          <div class="relative">
+            <div
+              class="w-16 h-16 rounded-2xl bg-purple-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <span class="text-3xl">📚</span>
+            </div>
+            <h3 class="text-xl font-bold text-[var(--color-text)] mb-3">Education &amp; Social Sciences</h3>
+            <p class="text-slate-600 dark:text-slate-300 mb-6 leading-relaxed">Shape minds and society. Explore
+              teaching, counseling,
+              research, and social impact careers.</p><button
+              class="flex items-center text-purple-400 font-medium text-sm group-hover:text-[#10b981] transition-colors">
+              Explore Careers
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section><!-- CTA Section -->
+  <section id="contact" class="py-20 lg:py-32 relative">
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#2563eb]/10 to-transparent"></div>
+    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div
+        class="bg-gradient-to-br from-blue-50/50 to-emerald-50/50 dark:from-blue-900/20 dark:to-emerald-900/20 backdrop-blur-2xl rounded-[2.5rem] p-12 lg:p-16 border border-[var(--color-border)] relative overflow-hidden transition-all duration-500">
+        <!-- Background Elements -->
+        <div class="absolute top-0 left-0 w-64 h-64 bg-[#2563eb]/20 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 right-0 w-64 h-64 bg-[#10b981]/20 rounded-full blur-3xl"></div>
+        <div class="relative">
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--color-text)] mb-6">Your Future <span
+              class="text-[#2563EB]">Starts Today</span></h2>
+          <p class="text-lg text-slate-500 dark:text-slate-400 mb-8 max-w-2xl mx-auto">Don't let career confusion hold
+            you back. Take the
+            first step towards clarity and confidence. Our free assessment takes just 10 minutes but can change your
+            life direction.</p>
+          <button class="group px-10 py-5
+         bg-[#2563eb]
+         hover:bg-gradient-to-r hover:from-[#2563eb] hover:to-[#10b981]
+         text-white font-bold text-lg rounded-2xl
+         transition-all duration-300
+         shadow-xl shadow-[#2563eb]/30 hover:shadow-[#2563eb]/50
+         flex items-center justify-center gap-3 mx-auto">
+            Start Your Journey Free
+          </button>
+
+          <p class="text-sm text-slate-600 dark:text-slate-300 mt-6">No credit card required • No pressure • Just
+            clarity</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Footer -->
+  <footer class="py-16 border-t border-[var(--color-border)]">
+    <div class="w-full mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+        <!-- Brand -->
+        <div class="lg:col-span-1">
+          <div class="flex items-center  mb-6">
+            <div class="w-20 h-20  flex items-center justify-center overflow-hidden">
+              <img src="logo.png" alt="Careerly Logo" class="w-full h-full object-contain  " />
+            </div>
+
+            <span class="text-xl font-bold text-[var(--color-text)]">Careerly</span>
+          </div>
+
+          <p class="text-slate-600 dark:text-slate-300 mb-6 leading-relaxed">Smart career guidance for students, fresh
+            graduates, and
+            young professionals. Discover your path with confidence.</p>
+          <div class="flex items-center gap-4">
+
+            <!-- LinkedIn -->
+            <a href="https://linkedin.com" target="_blank" class="w-10 h-10 rounded-xl bg-[var(--color-surface)] flex items-center justify-center
+              text-[#0A66C2] hover:bg-[#0A66C2] hover:text-white
+              transition-all duration-300 transform hover:-translate-y-1 hover:scale-110 shadow-sm hover:shadow-md">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.12 1 2.48 1 4.98 2.12 4.98 3.5zM.5 8h4v12h-4V8zm7 0h3.6v1.64h.05c.5-.94 1.74-1.94 3.58-1.94C18.3 7.7 20 9.34 20 12.26V20h-4v-6.9c0-1.65-.03-3.77-2.3-3.77-2.3 0-2.65 1.8-2.65 3.65V20h-4V8z" />
+              </svg>
+            </a>
+
+            <!-- X (Twitter) -->
+            <a href="https://x.com" target="_blank" class="w-10 h-10 rounded-xl bg-[var(--color-surface)] flex items-center justify-center
+              text-black hover:bg-black hover:text-white
+              transition-all duration-300 transform hover:-translate-y-1 hover:scale-110 shadow-sm hover:shadow-md">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M18.244 2H21l-6.56 7.5L22 22h-6.828l-5.35-7.01L3.5 22H1l7.02-8.03L2 2h6.828l4.82 6.38L18.244 2z" />
+              </svg>
+            </a>
+
+            <!-- Instagram -->
+            <a href="https://instagram.com" target="_blank" class="w-10 h-10 rounded-xl bg-[var(--color-surface)] flex items-center justify-center
+              text-[#E1306C] hover:bg-[#E1306C] hover:text-white
+              transition-all duration-300 transform hover:-translate-y-1 hover:scale-110 shadow-sm hover:shadow-md">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M7.75 2C4.57 2 2 4.57 2 7.75v8.5C2 19.43 4.57 22 7.75 22h8.5c3.18 0 5.75-2.57 5.75-5.75v-8.5C22 4.57 19.43 2 16.25 2h-8.5zm4.25 5.5a4.75 4.75 0 110 9.5 4.75 4.75 0 010-9.5zm6.5-.88a1.12 1.12 0 110 2.24 1.12 1.12 0 010-2.24zM12 9.25A2.75 2.75 0 109.25 12 2.75 2.75 0 0012 9.25z" />
+              </svg>
+            </a>
+
+            <!-- Facebook -->
+            <a href="https://facebook.com" target="_blank" class="w-10 h-10 rounded-xl bg-[var(--color-surface)] flex items-center justify-center
+              text-[#1877F2] hover:bg-[#1877F2] hover:text-white
+              transition-all duration-300 transform hover:-translate-y-1 hover:scale-110 shadow-sm hover:shadow-md">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M22 12a10 10 0 10-11.5 9.88v-6.99H8v-2.89h2.5V9.41c0-2.47 1.47-3.84 3.72-3.84 1.08 0 2.2.19 2.2.19v2.42h-1.24c-1.22 0-1.6.76-1.6 1.54v1.84H17l-.4 2.89h-2.62v6.99A10 10 0 0022 12z" />
+              </svg>
+            </a>
+
+          </div>
+
+        </div><!-- Quick Links -->
+        <div>
+          <h4 class="font-semibold text-[var(--color-text)] mb-6">Quick Links</h4>
+          <ul class="space-y-4">
+            <li><a href="index.html"
+                class="text-slate-600 dark:text-slate-300 hover:text-[#10b981] transition-colors">Home</a></li>
+            <li><a href="about.html"
+                class="text-slate-600 dark:text-slate-300 hover:text-[#10b981] transition-colors">About
+                Us</a></li>
+            <li><a href="services.html"
+                class="text-slate-600 dark:text-slate-300 hover:text-[#10b981] transition-colors">Services</a></li>
+            <li><a href="how-it-works.html"
+                class="text-slate-600 dark:text-slate-300 hover:text-[#10b981] transition-colors">How It Works</a>
+            </li>
+          </ul>
+        </div><!-- Resources -->
+        <div>
+          <h4 class="font-semibold text-[var(--color-text)] mb-6">Resources</h4>
+          <ul class="space-y-4">
+            <li><a href="resources.html"
+                class="text-slate-600 dark:text-slate-300 hover:text-[#10b981] transition-colors">Career Paths</a>
+            </li>
+            <li><a href="#" class="text-slate-600 dark:text-slate-300 hover:text-[#10b981] transition-colors">Blog</a>
+            </li>
+            <li><a href="ai-counselor.html"
+                class="text-slate-600 dark:text-slate-300 hover:text-[#10b981] transition-colors">AI Counselor</a>
+            </li>
+            <li><a href="contact.html"
+                class="text-slate-600 dark:text-slate-300 hover:text-[#10b981] transition-colors">Contact</a></li>
+          </ul>
+        </div><!-- Legal -->
+        <div>
+          <h4 class="font-semibold text-[var(--color-text)] mb-6">Legal</h4>
+          <ul class="space-y-4">
+            <li><a href="#" class="text-slate-600 dark:text-slate-300 hover:text-[#10b981] transition-colors">Privacy
+                Policy</a></li>
+            <li><a href="#" class="text-slate-600 dark:text-slate-300 hover:text-[#10b981] transition-colors">Terms
+                &amp; Conditions</a>
+            </li>
+            <li><a href="#" class="text-slate-600 dark:text-slate-300 hover:text-[#10b981] transition-colors">Cookie
+                Policy</a></li>
+          </ul>
+        </div>
+      </div><!-- Bottom Bar -->
+      <div
+        class="pt-8 border-t border-[var(--color-border)] flex flex-col md:flex-row items-center justify-between gap-4">
+        <p class="text-slate-600 dark:text-slate-300 text-sm">© 2025 Careerly. All rights reserved.</p>
+        <p class="text-slate-600 dark:text-slate-300 text-sm">Smart Career Guidance for Your Future</p>
+      </div>
+    </div>
+  </footer>
+  </div>
+</body>
+<script src="auth.js"></script>
+<script src="script.js"></script>
+
+</html>

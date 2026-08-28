@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resources - Careerly</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#2563eb',
+            secondary: '#10b981',
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="src/output.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --color-background: #f9fafb;
+      --color-surface: #ffffff;
+      --color-text: #1f2937;
+      --color-primary: #2563eb;
+      --color-secondary: #10b981;
+      --color-border: #e5e7eb;
+    }
+
+    * {
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      box-sizing: border-box;
+      background-color: var(--color-background);
+      color: var(--color-text);
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: var(--color-text);
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .nav-link {
+      position: relative;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active-link::after {
+      width: 100%;
+    }
+
+    .card-hover {
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .card-hover:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 50px -12px rgba(37, 99, 235, 0.15);
+    }
+
+    .animate-float {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-15px);
+      }
+    }
+  </style>
+  <script src="theme.js"></script>
+</head>
+
+<body class="antialiased text-[var(--color-text)] bg-[var(--color-background)]">
+  <div id="app-wrapper" class="w-full">
+    <!-- Navbar -->
+    <nav id="navbar" class="sticky top-0 z-50 w-full backdrop-blur-xl border-b border-[var(--color-border)]"
+      style="background-color: var(--color-background);">
+      <div id="scroll-indicator"
+        class="h-1 w-0 bg-gradient-to-r from-[#2563eb] to-[#10b981] absolute bottom-[-1px] left-0 z-[60] transition-all duration-75">
+      </div>
+      <div class="w-full mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16 lg:h-20">
+          <!-- Logo -->
+          <div class="flex items-center">
+            <img src="logo.png" alt="Careerly Logo" class="w-20 h-10 rounded-xl object-cover">
+            <div><span class="text-xl font-bold text-[var(--color-text)]">Careerly</span>
+              <p class="text-xs text-slate-500 dark:text-slate-400 hidden xl:block">Smart Career Guidance</p>
+            </div>
+          </div>
+          <!-- Desktop Navigation -->
+          <div class="hidden lg:flex items-center gap-5"><a href="index.html"
+              class="nav-link text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-[#10b981] transition-colors">Home</a>
+            <a href="about.html"
+              class="nav-link text-sm font-medium text-slate-500 dark:text-slate-404 hover:text-[#10b981] transition-colors">About
+              Us</a> <a href="services.html"
+              class="nav-link text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-[#10b981] transition-colors">Services</a>
+            <a href="how-it-works.html"
+              class="nav-link text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-[#10b981] transition-colors">How
+              It
+              Works</a> <a href="resources.html"
+              class="nav-link active-link text-sm font-semibold text-[var(--color-text)] hover:text-[#10b981] transition-colors">Resources</a>
+            <a href="ai-counselor.html"
+              class="nav-link text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-[#10b981] transition-colors flex items-center gap-1">
+              AI Counselor </a> <a href="contact.html"
+              class="nav-link text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-[#10b981] transition-colors">Contact</a>
+          </div>
+          <!-- Dark Mode Toggle and CTA Button -->
+          <div class="hidden lg:flex items-center gap-4">
+            <!-- Dark Mode Toggle -->
+            <button id="dark-mode-toggle"
+              class="p-2 rounded-lg bg-[var(--color-surface)] text-[var(--color-text)] hover:bg-[#d1d5db] transition-colors shadow-sm">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+              </svg>
+            </button>
+            <a href="ai-counselor.html" id="nav-cta"
+              class="px-6 py-2.5 bg-[#2563eb] hover:bg-gradient-to-r hover:from-[#2563eb] hover:to-[#10b981] text-white text-sm font-semibold rounded-xl transition-all duration-300 shadow-lg shadow-[#2563eb]/25 hover:shadow-[#2563eb]/40 inline-block">
+              Get Started Free
+            </a>
+          </div>
+          <!-- Mobile Menu Button -->
+          <div class="flex items-center gap-2 lg:hidden">
+            <!-- Dark Mode Toggle for Mobile -->
+            <button id="dark-mode-toggle-mobile"
+              class="p-2 rounded-lg bg-[var(--color-surface)] text-[var(--color-text)]">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+              </svg>
+            </button>
+            <button id="mobile-menu-btn" class="p-2 rounded-lg bg-[var(--color-surface)] text-[var(--color-text)]">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="hidden lg:hidden bg-[var(--color-background)] border-t border-[var(--color-border)]">
+        <div class="px-6 py-6 space-y-5">
+
+          <a href="index.html"
+            class="block text-base font-medium text-slate-500 dark:text-slate-400 hover:text-[#10b981] transition-colors">
+            Home
+          </a>
+
+          <a href="about.html"
+            class="block text-base font-medium text-slate-500 dark:text-slate-400 hover:text-[#10b981] transition-colors">
+            About Us
+          </a>
+
+          <a href="services.html"
+            class="block text-base font-medium text-slate-500 dark:text-slate-400 hover:text-[#10b981] transition-colors">
+            Services
+          </a>
+
+          <a href="how-it-works.html"
+            class="block text-base font-medium text-slate-500 dark:text-slate-400 hover:text-[#10b981] transition-colors">
+            How It Works
+          </a>
+
+          <a href="resources.html" class="block text-base font-semibold text-[#10b981] transition-colors">
+            Resources
+          </a>
+
+          <a href="ai-counselor.html"
+            class="flex items-center gap-1 text-base font-medium text-slate-500 dark:text-slate-400 hover:text-[#10b981] transition-colors">
+            AI Counselor
+          </a>
+
+          <a href="contact.html"
+            class="block text-base font-medium text-slate-500 dark:text-slate-400 hover:text-[#10b981] transition-colors">
+            Contact
+          </a>
+
+          <!-- Mobile CTA (Desktop style clone) -->
+          <a href="ai-counselor.html" class="w-full mt-6 px-6 py-3
+             bg-[#2563eb]
+             hover:bg-gradient-to-r hover:from-[#2563eb] hover:to-[#10b981]
+             text-white font-semibold rounded-xl
+             transition-all duration-300
+             shadow-lg shadow-[#2563eb]/25 hover:shadow-[#2563eb]/40 text-center inline-block">
+            Start Your Career Journey
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Resources Content -->
+    <section class="relative pt-32 pb-24 overflow-hidden">
+      <!-- Background Blobs -->
+      <div
+        class="absolute top-0 left-0 w-[500px] h-[500px] bg-[#2563eb]/5 rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2 animate-pulse-slow">
+      </div>
+      <div
+        class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-[#10b981]/5 rounded-full blur-[120px] translate-x-1/3 translate-y-1/3 animate-pulse-slow">
+      </div>
+
+      <div class="w-full mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div class="text-center mb-20">
+          <div
+            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-200 dark:bg-slate-700 border border-[var(--color-border)] dark:border-slate-600 mb-6">
+            <span class="w-2 h-2 rounded-full bg-[#10b981] animate-pulse"></span>
+            <span class="text-sm text-slate-500 dark:text-slate-400 font-medium">Premium Career Resources</span>
+          </div>
+          <h1 id="hero-headline" class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-6">
+            <span class="text-[var(--color-text)]">Career </span><span class="text-[#2563eb]">Resources</span><span
+              class="text-[var(--color-text)]"> Hub</span>
+          </h1>
+          <p
+            class="text-xl text-slate-500 dark:text-slate-400 max-w-3xl mx-auto leading-relaxed transition-colors duration-300 mb-4 font-medium">
+            Unlock your potential with our curated collection of expert guides and professional tools.
+          </p>
+          <p
+            class="text-base text-slate-600 dark:text-slate-300 max-w-2xl mx-auto leading-relaxed transition-colors duration-300">
+            Designed to accelerate your growth and provide clarity in your professional journey.
+          </p>
+        </div>
+
+        <!-- Resource Categories -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Category 1: Career Guides -->
+          <div
+            class="group relative bg-[var(--color-surface)] dark:bg-slate-900/40 backdrop-blur-xl rounded-[2.5rem] p-10 border border-[var(--color-border)] hover:border-[#2563eb]/50 transition-all duration-500 card-hover overflow-hidden">
+            <div
+              class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#2563eb]/10 to-transparent rounded-bl-[100px] -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-700">
+            </div>
+
+            <div
+              class="relative w-16 h-16 rounded-2xl bg-gradient-to-br from-[#2563eb] to-[#2563eb]/50 flex items-center justify-center mb-8 shadow-lg shadow-[#2563eb]/20 group-hover:scale-110 transition-transform duration-500">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-[var(--color-text)] mb-4 transition-colors duration-300">Career Guides
+            </h3>
+            <p class="text-slate-600 dark:text-slate-300 mb-8 leading-relaxed transition-colors duration-300">
+              Comprehensive roadmaps covering various academic and professional paths, industry deep-dives, and
+              strategic milestones.
+            </p>
+            <a href="ai-counselor.html"
+              class="inline-flex items-center gap-2 text-[#2563eb] font-bold hover:text-[#10b981] hover:gap-3 transition-all duration-300">
+              Explore Guides
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3">
+                </path>
+              </svg>
+            </a>
+          </div>
+
+          <!-- Category 2: Industry Reports -->
+          <div
+            class="group relative bg-[var(--color-surface)] dark:bg-slate-900/40 backdrop-blur-xl rounded-[2.5rem] p-10 border border-[var(--color-border)] hover:border-[#10b981]/50 transition-all duration-500 card-hover overflow-hidden">
+            <div
+              class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#10b981]/10 to-transparent rounded-bl-[100px] -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-700">
+            </div>
+
+            <div
+              class="relative w-16 h-16 rounded-2xl bg-gradient-to-br from-[#10b981] to-[#10b981]/50 flex items-center justify-center mb-8 shadow-lg shadow-[#10b981]/20 group-hover:scale-110 transition-transform duration-500">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-[var(--color-text)] mb-4 transition-colors duration-300">Industry Reports
+            </h3>
+            <p class="text-slate-600 dark:text-slate-300 mb-8 leading-relaxed transition-colors duration-300">
+              The latest market trends, salary benchmarks, and emerging growth projections for various global sectors.
+            </p>
+            <a href="ai-counselor.html"
+              class="inline-flex items-center gap-2 text-[#2563eb] font-bold hover:text-[#10b981] hover:gap-3 transition-all duration-300">
+              View Reports
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3">
+                </path>
+              </svg>
+            </a>
+          </div>
+
+          <!-- Category 3: Job Search Tools -->
+          <div
+            class="group relative bg-[var(--color-surface)] dark:bg-slate-900/40 backdrop-blur-xl rounded-[2.5rem] p-10 border border-[var(--color-border)] hover:border-[#6366f1]/50 transition-all duration-500 card-hover overflow-hidden">
+            <div
+              class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#6366f1]/10 to-transparent rounded-bl-[100px] -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-700">
+            </div>
+
+            <div
+              class="relative w-16 h-16 rounded-2xl bg-gradient-to-br from-[#6366f1] to-[#6366f1]/50 flex items-center justify-center mb-8 shadow-lg shadow-[#6366f1]/20 group-hover:scale-110 transition-transform duration-500">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z" />
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-[var(--color-text)] mb-4 transition-colors duration-300">Job Search Tools
+            </h3>
+            <p class="text-slate-600 dark:text-slate-300 mb-8 leading-relaxed transition-colors duration-300">
+              Smart templates, interview simulation guides, and optimized resume frameworks to help you stand out.
+            </p>
+            <a href="ai-counselor.html"
+              class="inline-flex items-center gap-2 text-[#2563eb] font-bold hover:text-[#10b981] hover:gap-3 transition-all duration-300">
+              Access Tools
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3">
+                </path>
+              </svg>
+            </a>
+          </div>
+
+          <!-- Category 4: Skill Development -->
+          <div
+            class="group relative bg-[var(--color-surface)] dark:bg-slate-900/40 backdrop-blur-xl rounded-[2.5rem] p-10 border border-[var(--color-border)] hover:border-[#6366f1]/50 transition-all duration-500 card-hover overflow-hidden">
+            <div
+              class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#6366f1]/10 to-transparent rounded-bl-[100px] -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-700">
+            </div>
+
+            <div
+              class="relative w-14 h-14 rounded-2xl bg-gradient-to-br from-[#6366f1] to-[#6366f1]/50 flex items-center justify-center mb-8 shadow-lg shadow-[#6366f1]/20 group-hover:scale-110 transition-transform duration-500">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-[var(--color-text)] mb-4 transition-colors duration-300">Skill
+              Development</h3>
+            <p class="text-slate-600 dark:text-slate-300 mb-8 leading-relaxed transition-colors duration-300">
+              Highly curated learning paths and specialized resources to master the skills demanded in your target
+              field.
+            </p>
+            <a href="ai-counselor.html"
+              class="inline-flex items-center gap-2 text-[#2563eb] font-bold hover:text-[#10b981] hover:gap-3 transition-all duration-300">
+              Explore Skills
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3">
+                </path>
+              </svg>
+            </a>
+          </div>
+
+          <!-- Category 5: Networking Tips -->
+          <div
+            class="group relative bg-[var(--color-surface)] dark:bg-slate-900/40 backdrop-blur-xl rounded-[2.5rem] p-10 border border-[var(--color-border)] hover:border-[#10b981]/50 transition-all duration-500 card-hover overflow-hidden">
+            <div
+              class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#10b981]/10 to-transparent rounded-bl-[100px] -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-700">
+            </div>
+
+            <div
+              class="relative w-14 h-14 rounded-2xl bg-gradient-to-br from-[#10b981] to-[#10b981]/50 flex items-center justify-center mb-8 shadow-lg shadow-[#10b981]/20 group-hover:scale-110 transition-transform duration-500">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-[var(--color-text)] mb-4 transition-colors duration-300">Networking Tips
+            </h3>
+            <p class="text-slate-600 dark:text-slate-300 mb-8 leading-relaxed transition-colors duration-300">
+              Modern strategies for building authentic professional relationships and expanding your sphere of
+              influence.
+            </p>
+            <a href="about.html"
+              class="inline-flex items-center gap-2 text-[#2563eb] font-bold hover:text-[#10b981] hover:gap-3 transition-all duration-300">
+              Learn More
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3">
+                </path>
+              </svg>
+            </a>
+          </div>
+
+          <!-- Category 6: Career Transitions -->
+          <div
+            class="group relative bg-[var(--color-surface)] dark:bg-slate-900/40 backdrop-blur-xl rounded-[2.5rem] p-10 border border-[var(--color-border)] hover:border-[#2563eb]/50 transition-all duration-500 card-hover overflow-hidden">
+            <div
+              class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#2563eb]/10 to-transparent rounded-bl-[100px] -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-700">
+            </div>
+
+            <div
+              class="relative w-14 h-14 rounded-2xl bg-gradient-to-br from-[#2563eb] to-[#2563eb]/50 flex items-center justify-center mb-8 shadow-lg shadow-[#2563eb]/20 group-hover:scale-110 transition-transform duration-500">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-[var(--color-text)] mb-4 transition-colors duration-300">Career
+              Transitions</h3>
+            <p class="text-slate-600 dark:text-slate-300 mb-8 leading-relaxed transition-colors duration-300">
+              Expert guidance for industry shifts, mid-career pivots, or advancing to executive leadership positions.
+            </p>
+            <a href="ai-counselor.html"
+              class="inline-flex items-center gap-2 text-[#2563eb] font-bold hover:text-[#10b981] hover:gap-3 transition-all duration-300">
+              Get Guidance
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3">
+                </path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Featured Resources -->
+        <div class="pt-32 mb-24">
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--color-text)] mb-12 text-center">
+            Featured <span class="text-[#2563eb]">Resources</span>
+          </h2>
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Resource 1 -->
+            <div
+              class="group card-hover p-8 bg-[var(--color-surface)] rounded-3xl border border-[var(--color-border)] hover:border-[#2563eb]/50 transition-all duration-300">
+              <div
+                class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#2563eb] to-[#2563eb]/50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold text-[var(--color-text)] transition-colors duration-300">Resume Builder</h3>
+              <p class="text-slate-600 dark:text-slate-300 mb-6 leading-relaxed transition-colors duration-300">
+                Craft professional, ATS-friendly resumes in minutes with our intuitive builder and expert-designed
+                templates.
+              </p>
+              <a href="ai-counselor.html"
+                class="text-[#2563eb] font-bold text-sm hover:text-[#10b981] flex items-center gap-2">
+                Access Tool
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+              </a>
+            </div>
+
+            <!-- Resource 2 -->
+            <div
+              class="group card-hover p-8 bg-[var(--color-surface)] rounded-3xl border border-[var(--color-border)] hover:border-[#10b981]/50 transition-all duration-300">
+              <div
+                class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#10b981] to-[#10b981]/50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z" />
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold text-[var(--color-text)] transition-colors duration-300">Salary Analytics
+              </h3>
+              <p class="text-slate-600 dark:text-slate-300 mb-6 leading-relaxed transition-colors duration-300">
+                Data-driven salary benchmarks and negotiation guides tailored to your specific role and geographic
+                market.
+              </p>
+              <a href="ai-counselor.html"
+                class="text-[#2563eb] font-bold text-sm hover:text-[#10b981] flex items-center gap-2">
+                Analyze Potential
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+              </a>
+            </div>
+
+            <!-- Resource 3 -->
+            <div
+              class="group card-hover p-8 bg-[var(--color-surface)] rounded-3xl border border-[var(--color-border)] hover:border-[#6366f1]/50 transition-all duration-300">
+              <div
+                class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#6366f1] to-[#6366f1]/50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold text-[var(--color-text)] transition-colors duration-300">Industry Trends</h3>
+              <p class="text-slate-600 dark:text-slate-300 mb-6 leading-relaxed transition-colors duration-300">
+                Weekly intelligence reports on emerging technologies, sector shifts, and future-forward job
+                opportunities.
+              </p>
+              <a href="ai-counselor.html"
+                class="text-[#2563eb] font-bold text-sm hover:text-[#10b981] flex items-center gap-2">
+                Read Report
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Newsletter Signup -->
+        <div id="newsletter-section"
+          class="relative bg-gradient-to-br from-[#2563eb]/5 to-[#10b981]/5 rounded-[3rem] p-10 lg:p-20 text-center overflow-hidden border border-[var(--color-border)] group">
+          <div
+            class="absolute top-0 right-0 w-64 h-64 bg-[#2563eb]/10 rounded-full blur-[80px] -mr-32 -mt-32 group-hover:bg-[#2563eb]/20 transition-all duration-700">
+          </div>
+          <div
+            class="absolute bottom-0 left-0 w-64 h-64 bg-[#10b981]/10 rounded-full blur-[80px] -ml-32 -mb-32 group-hover:bg-[#10b981]/20 transition-all duration-700">
+          </div>
+
+          <!-- ── Default / Form State ── -->
+          <div id="newsletter-form-state" class="relative z-10">
+            <h2
+              class="text-3xl lg:text-5xl font-extrabold text-[var(--color-text)] mb-6 tracking-tight transition-colors duration-300">
+              Stay Ahead with Career <span class="text-[#2563eb]">Insights</span>
+            </h2>
+            <p
+              class="text-lg text-slate-500 dark:text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed transition-colors duration-300">
+              Join 50,000+ professionals receiving weekly updates on the future of work, exclusive guides, and
+              skill-building opportunities.
+            </p>
+
+            <!-- Form -->
+            <form id="newsletter-form" class="flex flex-col sm:flex-row gap-4 max-w-2xl mx-auto" novalidate>
+              <input id="newsletter-email" type="email" name="email" placeholder="professional@example.com"
+                autocomplete="email" required
+                class="flex-1 px-8 py-5 rounded-2xl bg-[var(--color-surface)] dark:bg-slate-800 border border-[var(--color-border)] focus:outline-none focus:ring-2 focus:ring-[#2563eb] focus:border-transparent transition-all shadow-inner text-[var(--color-text)]">
+              <button id="newsletter-btn" type="submit"
+                class="relative flex items-center justify-center gap-3 px-10 py-5 bg-[#2563eb] text-white font-bold rounded-2xl hover:shadow-xl hover:bg-gradient-to-r hover:from-[#2563eb] hover:to-[#10b981] transition-all active:scale-95 min-w-[180px]">
+                <!-- Idle label -->
+                <span id="btn-label">Subscribe Now</span>
+                <!-- Spinner (hidden by default) -->
+                <svg id="btn-spinner" class="hidden w-5 h-5 animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none"
+                  viewBox="0 0 24 24">
+                  <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                  <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
+                </svg>
+              </button>
+            </form>
+
+            <!-- Inline error message -->
+            <p id="newsletter-error" class="hidden mt-4 text-sm font-medium text-red-500 animate-pulse"></p>
+
+            <p class="text-sm text-slate-600 dark:text-slate-300 mt-6">
+              🔒 No spam &nbsp;•&nbsp; Only high-value insights &nbsp;•&nbsp; Unsubscribe anytime
+            </p>
+          </div>
+
+          <!-- ── Success State (hidden by default) ── -->
+          <div id="newsletter-success-state" class="hidden relative z-10 py-6">
+            <div class="flex items-center justify-center mb-6">
+              <div
+                class="w-20 h-20 rounded-full bg-gradient-to-br from-[#10b981] to-[#2563eb] flex items-center justify-center shadow-xl shadow-[#10b981]/30">
+                <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+            </div>
+            <h2 class="text-3xl lg:text-4xl font-extrabold text-[var(--color-text)] mb-4 tracking-tight">
+              You're <span class="text-[#10b981]">Subscribed!</span> 🎉
+            </h2>
+            <p class="text-lg text-slate-500 dark:text-slate-400 mb-4 max-w-xl mx-auto leading-relaxed">
+              Welcome aboard! A confirmation email is on its way to your inbox.
+            </p>
+            <p class="text-sm text-slate-400 dark:text-slate-500">
+              Didn't receive it? Check your spam or promotions folder.
+            </p>
+          </div>
+        </div>
+
+        <!-- ── Newsletter AJAX Script ── -->
+        <script>
+            (function () {
+              const form = document.getElementById('newsletter-form');
+              const emailInput = document.getElementById('newsletter-email');
+              const btn = document.getElementById('newsletter-btn');
+              const btnLabel = document.getElementById('btn-label');
+              const btnSpinner = document.getElementById('btn-spinner');
+              const errorEl = document.getElementById('newsletter-error');
+              const formState = document.getElementById('newsletter-form-state');
+              const successState = document.getElementById('newsletter-success-state');
+
+              /** Show/hide inline error */
+              function showError(msg) {
+                errorEl.textContent = msg;
+                errorEl.classList.remove('hidden');
+                emailInput.classList.add('border-red-400', 'ring-1', 'ring-red-400');
+              }
+
+              function clearError() {
+                errorEl.textContent = '';
+                errorEl.classList.add('hidden');
+                emailInput.classList.remove('border-red-400', 'ring-1', 'ring-red-400');
+              }
+
+              /** Toggle loading state on the button */
+              function setLoading(loading) {
+                btn.disabled = loading;
+                if (loading) {
+                  btnLabel.textContent = 'Sending…';
+                  btnSpinner.classList.remove('hidden');
+                  btn.classList.add('opacity-80', 'cursor-not-allowed');
+                } else {
+                  btnLabel.textContent = 'Subscribe Now';
+                  btnSpinner.classList.add('hidden');
+                  btn.classList.remove('opacity-80', 'cursor-not-allowed');
+                }
+              }
+
+              form.addEventListener('submit', async function (e) {
+                e.preventDefault();
+                clearError();
+
+                const email = emailInput.value.trim();
+
+                // Client-side validation
+                if (!email) {
+                  showError('Please enter your email address.');
+                  emailInput.focus();
+                  return;
+                }
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email)) {
+                  showError('Please enter a valid email address.');
+                  emailInput.focus();
+                  return;
+                }
+
+                setLoading(true);
+
+                try {
+                  const response = await fetch('subscribe.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email })
+                  });
+
+                  const result = await response.json();
+
+                  if (result.success) {
+                    // Fade out form, fade in success
+                    formState.style.transition = 'opacity 0.4s ease';
+                    formState.style.opacity = '0';
+                    setTimeout(() => {
+                      formState.classList.add('hidden');
+                      successState.classList.remove('hidden');
+                      successState.style.opacity = '0';
+                      successState.style.transition = 'opacity 0.4s ease';
+                      requestAnimationFrame(() => {
+                        successState.style.opacity = '1';
+                      });
+                    }, 400);
+                  } else {
+                    showError(result.message || 'Something went wrong. Please try again.');
+                  }
+                } catch (err) {
+                  showError('Network error. Please check your connection and try again.');
+                } finally {
+                  setLoading(false);
+                }
+              });
+
+              // Clear error on input
+              emailInput.addEventListener('input', clearError);
+            })();
+        </script>
+      </div>
+    </section>
+    <!-- Footer -->
+    <footer class="py-16 border-t border-[var(--color-border)]">
+      <div class="w-full mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+          <!-- Brand -->
+          <div class="lg:col-span-1">
+            <div class="flex items-center  mb-6">
+              <div class="w-20 h-20  flex items-center justify-center overflow-hidden">
+                <img src="logo.png" alt="Careerly Logo" class="w-full h-full object-contain  " />
+              </div>
+
+              <span class="text-xl font-bold text-[var(--color-text)]">Careerly</span>
+            </div>
+
+            <p class="text-slate-600 dark:text-slate-300 mb-6 leading-relaxed">Smart career guidance for students, fresh
+              graduates, and
+              young professionals. Discover your path with confidence.</p>
+            <div class="flex items-center gap-4">
+
+              <!-- LinkedIn -->
+              <a href="https://linkedin.com" target="_blank" class="w-10 h-10 rounded-xl bg-[var(--color-surface)] flex items-center justify-center
+              text-[#0A66C2] hover:bg-[#0A66C2] hover:text-white
+              transition-all duration-300 transform hover:-translate-y-1 hover:scale-110 shadow-sm hover:shadow-md">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.12 1 2.48 1 4.98 2.12 4.98 3.5zM.5 8h4v12h-4V8zm7 0h3.6v1.64h.05c.5-.94 1.74-1.94 3.58-1.94C18.3 7.7 20 9.34 20 12.26V20h-4v-6.9c0-1.65-.03-3.77-2.3-3.77-2.3 0-2.65 1.8-2.65 3.65V20h-4V8z" />
+                </svg>
+              </a>
+
+              <!-- X (Twitter) -->
+              <a href="https://x.com" target="_blank" class="w-10 h-10 rounded-xl bg-[var(--color-surface)] flex items-center justify-center
+              text-black hover:bg-black hover:text-white
+              transition-all duration-300 transform hover:-translate-y-1 hover:scale-110 shadow-sm hover:shadow-md">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M18.244 2H21l-6.56 7.5L22 22h-6.828l-5.35-7.01L3.5 22H1l7.02-8.03L2 2h6.828l4.82 6.38L18.244 2z" />
+                </svg>
+              </a>
+
+              <!-- Instagram -->
+              <a href="https://instagram.com" target="_blank" class="w-10 h-10 rounded-xl bg-[var(--color-surface)] flex items-center justify-center
+              text-[#E1306C] hover:bg-[#E1306C] hover:text-white
+              transition-all duration-300 transform hover:-translate-y-1 hover:scale-110 shadow-sm hover:shadow-md">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M7.75 2C4.57 2 2 4.57 2 7.75v8.5C2 19.43 4.57 22 7.75 22h8.5c3.18 0 5.75-2.57 5.75-5.75v-8.5C22 4.57 19.43 2 16.25 2h-8.5zm4.25 5.5a4.75 4.75 0 110 9.5 4.75 4.75 0 010-9.5zm6.5-.88a1.12 1.12 0 110 2.24 1.12 1.12 0 010-2.24zM12 9.25A2.75 2.75 0 109.25 12 2.75 2.75 0 0012 9.25z" />
+                </svg>
+              </a>
+
+              <!-- Facebook -->
+              <a href="https://facebook.com" target="_blank" class="w-10 h-10 rounded-xl bg-[var(--color-surface)] flex items-center justify-center
+              text-[#1877F2] hover:bg-[#1877F2] hover:text-white
+              transition-all duration-300 transform hover:-translate-y-1 hover:scale-110 shadow-sm hover:shadow-md">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M22 12a10 10 0 10-11.5 9.88v-6.99H8v-2.89h2.5V9.41c0-2.47 1.47-3.84 3.72-3.84 1.08 0 2.2.19 2.2.19v2.42h-1.24c-1.22 0-1.6.76-1.6 1.54v1.84H17l-.4 2.89h-2.62v6.99A10 10 0 0022 12z" />
+                </svg>
+              </a>
+
+            </div>
+
+          </div><!-- Quick Links -->
+          <div>
+            <h4 class="font-semibold text-[var(--color-text)] mb-6">Quick Links</h4>
+            <ul class="space-y-4">
+              <li><a href="index.html"
+                  class="text-slate-600 dark:text-slate-300 hover:text-[#10b981] transition-colors">Home</a></li>
+              <li><a href="about.html"
+                  class="text-slate-600 dark:text-slate-300 hover:text-[#10b981] transition-colors">About
+                  Us</a></li>
+              <li><a href="services.html"
+                  class="text-slate-600 dark:text-slate-300 hover:text-[#10b981] transition-colors">Services</a></li>
+              <li><a href="how-it-works.html"
+                  class="text-slate-600 dark:text-slate-300 hover:text-[#10b981] transition-colors">How It Works</a>
+              </li>
+            </ul>
+          </div><!-- Resources -->
+          <div>
+            <h4 class="font-semibold text-[var(--color-text)] mb-6">Resources</h4>
+            <ul class="space-y-4">
+              <li><a href="resources.html"
+                  class="text-slate-600 dark:text-slate-300 hover:text-[#10b981] transition-colors">Career Paths</a>
+              </li>
+              <li><a href="#" class="text-slate-600 dark:text-slate-300 hover:text-[#10b981] transition-colors">Blog</a>
+              </li>
+              <li><a href="ai-counselor.html"
+                  class="text-slate-600 dark:text-slate-300 hover:text-[#10b981] transition-colors">AI Counselor</a>
+              </li>
+              <li><a href="contact.html"
+                  class="text-slate-600 dark:text-slate-300 hover:text-[#10b981] transition-colors">Contact</a></li>
+            </ul>
+          </div><!-- Legal -->
+          <div>
+            <h4 class="font-semibold text-[var(--color-text)] mb-6">Legal</h4>
+            <ul class="space-y-4">
+              <li><a href="#" class="text-slate-600 dark:text-slate-300 hover:text-[#10b981] transition-colors">Privacy
+                  Policy</a></li>
+              <li><a href="#" class="text-slate-600 dark:text-slate-300 hover:text-[#10b981] transition-colors">Terms
+                  &amp; Conditions</a>
+              </li>
+              <li><a href="#" class="text-slate-600 dark:text-slate-300 hover:text-[#10b981] transition-colors">Cookie
+                  Policy</a></li>
+            </ul>
+          </div>
+        </div><!-- Bottom Bar -->
+        <div
+          class="pt-8 border-t border-[var(--color-border)] flex flex-col md:flex-row items-center justify-between gap-4">
+          <p class="text-slate-600 dark:text-slate-300 text-sm">© 2025 Careerly. All rights reserved.</p>
+          <p class="text-slate-600 dark:text-slate-300 text-sm">Smart Career Guidance for Your Future</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script src="auth.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>

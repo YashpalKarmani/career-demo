@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Services - Careerly | Smart Career Guidance</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#2563eb',
+            secondary: '#10b981',
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --color-background: #f9fafb;
+      --color-surface: #ffffff;
+      --color-text: #1f2937;
+      --color-primary: #2563eb;
+      --color-secondary: #10b981;
+      --color-border: #e5e7eb;
+    }
+
+    * {
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      box-sizing: border-box;
+      background-color: var(--color-background);
+      color: var(--color-text);
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: var(--color-text);
+    }
+
+    .card-hover {
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .card-hover:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 50px -12px rgba(37, 99, 235, 0.15);
+    }
+
+    .nav-link {
+      position: relative;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active-link::after {
+      width: 100%;
+    }
+
+    .animate-float {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-15px);
+      }
+    }
+
+    .animate-pulse-slow {
+      animation: pulse-slow 4s ease-in-out infinite;
+    }
+
+    @keyframes pulse-slow {
+
+      0%,
+      100% {
+        opacity: 0.3;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 0.6;
+        transform: scale(1.05);
+      }
+    }
+
+    .glow-effect {
+      box-shadow: 0 0 40px rgba(37, 99, 235, 0.1);
+    }
+  </style>
+  <script src="theme.js"></script>
+</head>
+
+<body class="antialiased text-[var(--color-text)] bg-[var(--color-background)]">
+  <!-- Navbar -->
+  <nav id="navbar" class="sticky top-0 z-50 w-full backdrop-blur-xl border-b border-[var(--color-border)]"
+    style="background-color: var(--color-background);">
+    <div id="scroll-indicator"
+      class="h-1 w-0 bg-gradient-to-r from-[#2563eb] to-[#10b981] absolute bottom-[-1px] left-0 z-[60] transition-all duration-75">
+    </div>
+    <div class="w-full mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 lg:h-20">
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center">
+          <img src="logo.png" alt="Careerly Logo" class="w-20 h-10 rounded-xl object-cover">
+          <div class="ml-2">
+            <span class="text-xl font-bold text-[var(--color-text)]">Careerly</span>
+            <p class="text-xs text-slate-500 dark:text-slate-400 hidden xl:block">Smart Career Guidance</p>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <div class="hidden lg:flex items-center gap-5">
+          <a href="index.html"
+            class="nav-link text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-[#10b981] transition-colors">Home</a>
+          <a href="about.html"
+            class="nav-link text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-[#10b981] transition-colors">About
+            Us</a>
+          <a href="services.html"
+            class="nav-link text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-[#10b981] transition-colors">Services</a>
+          <a href="how-it-works.html"
+            class="nav-link text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-[#10b981] transition-colors">How
+            It Works</a>
+          <a href="resources.html"
+            class="nav-link text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-[#10b981] transition-colors">Resources</a>
+          <a href="ai-counselor.html"
+            class="nav-link text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-[#10b981] transition-colors flex items-center gap-1">AI
+            Counselor</a>
+          <a href="contact.html"
+            class="nav-link text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-[#10b981] transition-colors">Contact</a>
+        </div>
+
+        <!-- Dark Mode Toggle and CTA Button -->
+        <div class="hidden lg:flex items-center gap-4">
+          <!-- Dark Mode Toggle -->
+          <button id="dark-mode-toggle"
+            class="p-2 rounded-lg bg-[var(--color-surface)] text-[var(--color-text)] hover:bg-[#d1d5db] transition-colors shadow-sm">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+            </svg>
+          </button>
+          <a href="ai-counselor.html" id="nav-cta"
+            class="px-6 py-2.5 bg-[#2563eb] hover:bg-gradient-to-r hover:from-[#2563eb] hover:to-[#10b981] text-white text-sm font-semibold rounded-xl transition-all duration-300 shadow-lg shadow-[#2563eb]/25 hover:shadow-[#2563eb]/40 inline-block">
+            Get Started Free
+          </a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <div class="flex items-center gap-2 lg:hidden">
+          <!-- Dark Mode Toggle for Mobile -->
+          <button id="dark-mode-toggle-mobile"
+            class="p-2 rounded-lg bg-[var(--color-surface)] text-[var(--color-text)]">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+            </svg>
+          </button>
+          <button id="mobile-menu-btn" class="p-2 rounded-lg bg-[var(--color-surface)] text-[var(--color-text)]">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-[var(--color-background)] border-t border-[var(--color-border)]">
+      <div class="px-6 py-6 space-y-5">
+        <a href="index.html"
+          class="block text-base font-medium text-slate-500 dark:text-slate-400 hover:text-[#10b981]">Home</a>
+        <a href="about.html"
+          class="block text-base font-medium text-slate-500 dark:text-slate-400 hover:text-[#10b981]">About Us</a>
+        <a href="services.html"
+          class="block text-base font-medium text-slate-500 dark:text-slate-400 hover:text-[#10b981]">Services</a>
+        <a href="how-it-works.html"
+          class="block text-base font-medium text-slate-500 dark:text-slate-400 hover:text-[#10b981]">How It Works</a>
+        <a href="resources.html"
+          class="block text-base font-medium text-slate-500 dark:text-slate-400 hover:text-[#10b981]">Resources</a>
+        <a href="ai-counselor.html"
+          class="block text-base font-medium text-slate-500 dark:text-slate-400 hover:text-[#10b981]">AI Counselor</a>
+        <a href="contact.html"
+          class="block text-base font-medium text-slate-500 dark:text-slate-400 hover:text-[#10b981]">Contact</a>
+        <a href="ai-counselor.html"
+          class="w-full mt-6 px-6 py-3 bg-[#2563eb] hover:bg-gradient-to-r hover:from-[#2563eb] hover:to-[#10b981] text-white font-semibold rounded-xl transition-all duration-300 shadow-lg shadow-[#2563eb]/25 text-center inline-block">
+          Start Your Career Journey
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+      <!-- Background Blobs -->
+      <div class="absolute inset-0 overflow-hidden -z-10">
+        <div class="absolute top-1/4 -left-20 w-96 h-96 bg-[#2563eb]/10 rounded-full blur-3xl animate-pulse-slow"></div>
+        <div class="absolute bottom-1/4 -right-20 w-96 h-96 bg-[#10b981]/15 rounded-full blur-3xl animate-pulse-slow"
+          style="animation-delay: 2s;"></div>
+      </div>
+
+      <div class="w-full mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div
+          class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-200 dark:bg-slate-700 border border-[var(--color-border)] dark:border-slate-600 mb-8">
+          <span class="w-2 h-2 rounded-full bg-[#10b981] animate-pulse"></span>
+          <span class="text-sm font-medium text-slate-500 dark:text-slate-400">Comprehensive Career Support</span>
+        </div>
+        <h1 class="text-4xl sm:text-5xl lg:text-7xl font-extrabold text-[var(--color-text)] mb-6 leading-tight">
+          Our <span class="text-[var(--color-primary)]">Services</span>
+        </h1>
+        <p class="text-xl text-slate-500 dark:text-slate-400 font-medium mb-12 max-w-2xl mx-auto">
+          Discover, Plan, and Grow with Smart Career Guidance
+        </p>
+
+        <!-- Intro Paragraph Block -->
+        <div
+          class="max-w-4xl mx-auto p-8 rounded-[2rem] bg-[var(--color-surface)]/50 border border-[var(--color-border)] dark:border-slate-700 backdrop-blur-sm mb-12">
+          <p class="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
+            At Careerly, we provide a complete ecosystem of tools and support designed specifically for students, fresh
+            graduates, and young professionals. Everything we offer combines expert-backed methods, real-world Pakistani
+            job market insights, and future-ready AI-powered features — all in one accessible place.
+          </p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="ai-counselor.html"
+            class="px-10 py-4 bg-[#2563eb] hover:bg-gradient-to-r hover:from-[#2563eb] hover:to-[#10b981] text-white font-bold rounded-2xl transition-all duration-300 shadow-xl shadow-[#2563eb]/30 hover:shadow-[#2563eb]/50 inline-block">
+            Begin Free Assessment
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Service Cards Grid -->
+    <section class="py-20 bg-[var(--color-background)]/50 backdrop-blur-sm">
+      <div class="w-full mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Service 1: Comprehensive Profile & Skills -->
+          <article
+            class="card-hover bg-[var(--color-surface)] rounded-[2.5rem] p-8 border border-[var(--color-border)] dark:border-slate-700 flex flex-col h-full">
+            <div
+              class="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#2563eb] to-[#10b981] flex items-center justify-center mb-8 shadow-lg shadow-[#2563eb]/20">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-[var(--color-text)] mb-4">User Profile & Skills</h3>
+            <p class="text-slate-600 dark:text-slate-300 font-semibold mb-4 italic">Your foundation for success</p>
+            <p class="text-slate-500 dark:text-slate-400 mb-6">Create a comprehensive profile detailing your degree,
+              class completion, technical skills, and personal interests to help our agent understand you better.</p>
+            <ul class="space-y-3 mb-8 text-slate-600 dark:text-slate-300 text-sm flex-grow">
+              <li class="flex items-start gap-2">
+                <span class="text-[#2563eb]">✓</span>
+                <span>Track academic milestones & degree</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-[#2563eb]">✓</span>
+                <span>Log technical & soft skills</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-[#2563eb]">✓</span>
+                <span>Highlight personal interests</span>
+              </li>
+            </ul>
+            <a href="ai-counselor.html"
+              class="text-[#2563eb] font-bold hover:text-[#10b981] transition-colors inline-flex items-center gap-2">
+              Update Profile →
+            </a>
+          </article>
+
+          <!-- Service 2: Career & Job Recommendations -->
+          <article
+            class="card-hover bg-[var(--color-surface)] rounded-[2.5rem] p-8 border border-[var(--color-border)] dark:border-slate-700 flex flex-col h-full">
+            <div
+              class="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#2563eb] to-[#10b981] flex items-center justify-center mb-8 shadow-lg shadow-[#2563eb]/20">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-[var(--color-text)] mb-4">Career & Job Recommendations</h3>
+            <p class="text-slate-600 dark:text-slate-300 font-semibold mb-4 italic">Tailored paths just for you</p>
+            <p class="text-slate-500 dark:text-slate-400 mb-6">Based on your profile and skills, our smart agent curates
+              highly relevant
+              career trajectories and live job recommendations from the market.</p>
+            <ul class="space-y-3 mb-8 text-slate-600 dark:text-slate-300 text-sm flex-grow">
+              <li class="flex items-start gap-2">
+                <span class="text-[#2563eb]">✓</span>
+                <span>Personalized career trajectories</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-[#2563eb]">✓</span>
+                <span>Live job market matching</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-[#2563eb]">✓</span>
+                <span>Growth potential analysis</span>
+              </li>
+            </ul>
+            <a href="ai-counselor.html"
+              class="text-[#2563eb] font-bold hover:text-[#10b981] transition-colors inline-flex items-center gap-2">
+              View Matches →
+            </a>
+          </article>
+
+          <!-- Service 3: Text-to-Speech Voice Agent -->
+          <article
+            class="card-hover bg-[var(--color-surface)] rounded-[2.5rem] p-8 border border-[var(--color-border)] dark:border-slate-700 flex flex-col h-full">
+            <div
+              class="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#2563eb] to-[#10b981] flex items-center justify-center mb-8 shadow-lg shadow-[#2563eb]/20">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-[var(--color-text)] mb-4">Interactive Voice Agent</h3>
+            <p class="text-slate-600 dark:text-slate-300 font-semibold mb-4 italic">Listen to your guidance</p>
+            <p class="text-slate-500 dark:text-slate-400 mb-6">Our smart voice agent is designed to pronounce what is
+              written on the screen,
+              making it easier to consume career advice, job details, and recommendations on the go.</p>
+            <ul class="space-y-3 mb-8 text-slate-600 dark:text-slate-300 text-sm flex-grow">
+              <li class="flex items-start gap-2">
+                <span class="text-[#2563eb]">✓</span>
+                <span>Text-to-speech capabilities</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-[#2563eb]">✓</span>
+                <span>Pronounces written recommendations</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-[#2563eb]">✓</span>
+                <span>Accessible career guidance</span>
+              </li>
+            </ul>
+            <a href="ai-counselor.html"
+              class="text-[#2563eb] font-bold hover:text-[#10b981] transition-colors inline-flex items-center gap-2">
+              Listen Now →
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Who These Services Are For -->
+    <section class="py-24 bg-[var(--color-background)]">
+      <div class="w-full mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[var(--color-text)] mb-6">
+            Who These Services <span class="text-[#2563eb]">Are For</span>
+          </h2>
+          <p class="text-lg text-slate-500 dark:text-slate-400 max-w-2xl mx-auto">
+            Tailored guidance for every stage of your early career journey.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <div
+            class="bg-[var(--color-surface)] p-8 rounded-[2rem] border border-[var(--color-border)] dark:border-transparent shadow-sm flex flex-col items-center text-center">
+            <div class="w-12 h-12 rounded-full bg-[#2563eb]/10 flex items-center justify-center text-2xl mb-6">🎓</div>
+            <h4 class="text-xl font-bold mb-4" style="color: var(--color-text);">FSc/A-Level Students</h4>
+            <p class="text-slate-600 dark:text-slate-400">Decide on the right degree and university to avoid mid-studies
+              regret.</p>
+          </div>
+          <div
+            class="bg-[var(--color-surface)] p-8 rounded-[2rem] border border-[var(--color-border)] dark:border-transparent shadow-sm flex flex-col items-center text-center">
+            <div class="w-12 h-12 rounded-full bg-[#10b981]/10 flex items-center justify-center text-2xl mb-6">🏢</div>
+            <h4 class="text-xl font-bold mb-4" style="color: var(--color-text);">Fresh Graduates</h4>
+            <p class="text-slate-600 dark:text-slate-400">Navigate the job market and find roles that match your passion
+              and skills.</p>
+          </div>
+          <div
+            class="bg-[var(--color-surface)] p-8 rounded-[2rem] border border-[var(--color-border)] dark:border-transparent shadow-sm flex flex-col items-center text-center">
+            <div class="w-12 h-12 rounded-full bg-[#2563eb]/10 flex items-center justify-center text-2xl mb-6">💼</div>
+            <h4 class="text-xl font-bold mb-4" style="color: var(--color-text);">Young Professionals</h4>
+            <p class="text-slate-600 dark:text-slate-400">Plan your next promotion or transition into a more fulfilling
+              career field.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="py-20 lg:py-32 relative">
+      <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#2563eb]/10 to-transparent"></div>
+      <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div
+          class="bg-gradient-to-br from-blue-50/50 to-emerald-50/50 dark:from-blue-900/20 dark:to-emerald-900/20 backdrop-blur-2xl rounded-[2.5rem] p-12 lg:p-16 border border-[var(--color-border)] relative overflow-hidden transition-all duration-500">
+          <!-- Background Elements -->
+          <div class="absolute top-0 left-0 w-64 h-64 bg-[#2563eb]/20 rounded-full blur-3xl"></div>
+          <div class="absolute bottom-0 right-0 w-64 h-64 bg-[#10b981]/20 rounded-full blur-3xl"></div>
+          <div class="relative">
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--color-text)] mb-6">
+              Build Your Future <span class="text-[#2563EB]">With Confidence</span>
+            </h2>
+            <p class="text-lg text-slate-500 dark:text-slate-400 mb-8 max-w-2xl mx-auto">
+              Join thousands of users who have found clarity with Careerly. Start your free assessment today and take
+              control of your professional path.
+            </p>
+            <a href="ai-counselor.html" class="group px-8 py-3.5
+            bg-[#2563eb]
+            hover:bg-gradient-to-r hover:from-[#2563eb] hover:to-[#10b981]
+            text-white font-bold text-lg rounded-2xl
+            transition-all duration-300
+            shadow-xl shadow-[#2563eb]/30 hover:shadow-[#2563eb]/50
+            inline-flex items-center justify-center gap-3 mx-auto">
+              Get Started Now
+            </a>
+
+            <p class="text-sm text-slate-600 dark:text-slate-300 mt-6">No credit card required • No pressure • Just
+              clarity</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="py-16 border-t border-[var(--color-border)]">
+    <div class="w-full mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+        <!-- Brand -->
+        <div class="lg:col-span-1">
+          <div class="flex items-center  mb-6">
+            <div class="w-20 h-20  flex items-center justify-center overflow-hidden">
+              <img src="logo.png" alt="Careerly Logo" class="w-full h-full object-contain  " />
+            </div>
+
+            <span class="text-xl font-bold text-[var(--color-text)]">Careerly</span>
+          </div>
+
+          <p class="text-slate-600 dark:text-slate-300 mb-6 leading-relaxed">Smart career guidance for students, fresh
+            graduates, and
+            young professionals. Discover your path with confidence.</p>
+          <div class="flex items-center gap-4">
+
+            <!-- LinkedIn -->
+            <a href="https://linkedin.com" target="_blank" class="w-10 h-10 rounded-xl bg-[var(--color-surface)] flex items-center justify-center
+              text-[#0A66C2] hover:bg-[#0A66C2] hover:text-white
+              transition-all duration-300 transform hover:-translate-y-1 hover:scale-110 shadow-sm hover:shadow-md">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.12 1 2.48 1 4.98 2.12 4.98 3.5zM.5 8h4v12h-4V8zm7 0h3.6v1.64h.05c.5-.94 1.74-1.94 3.58-1.94C18.3 7.7 20 9.34 20 12.26V20h-4v-6.9c0-1.65-.03-3.77-2.3-3.77-2.3 0-2.65 1.8-2.65 3.65V20h-4V8z" />
+              </svg>
+            </a>
+
+            <!-- X (Twitter) -->
+            <a href="https://x.com" target="_blank" class="w-10 h-10 rounded-xl bg-[var(--color-surface)] flex items-center justify-center
+              text-black hover:bg-black hover:text-white
+              transition-all duration-300 transform hover:-translate-y-1 hover:scale-110 shadow-sm hover:shadow-md">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M18.244 2H21l-6.56 7.5L22 22h-6.828l-5.35-7.01L3.5 22H1l7.02-8.03L2 2h6.828l4.82 6.38L18.244 2z" />
+              </svg>
+            </a>
+
+            <!-- Instagram -->
+            <a href="https://instagram.com" target="_blank" class="w-10 h-10 rounded-xl bg-[var(--color-surface)] flex items-center justify-center
+              text-[#E1306C] hover:bg-[#E1306C] hover:text-white
+              transition-all duration-300 transform hover:-translate-y-1 hover:scale-110 shadow-sm hover:shadow-md">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M7.75 2C4.57 2 2 4.57 2 7.75v8.5C2 19.43 4.57 22 7.75 22h8.5c3.18 0 5.75-2.57 5.75-5.75v-8.5C22 4.57 19.43 2 16.25 2h-8.5zm4.25 5.5a4.75 4.75 0 110 9.5 4.75 4.75 0 010-9.5zm6.5-.88a1.12 1.12 0 110 2.24 1.12 1.12 0 010-2.24zM12 9.25A2.75 2.75 0 109.25 12 2.75 2.75 0 0012 9.25z" />
+              </svg>
+            </a>
+
+            <!-- Facebook -->
+            <a href="https://facebook.com" target="_blank" class="w-10 h-10 rounded-xl bg-[var(--color-surface)] flex items-center justify-center
+              text-[#1877F2] hover:bg-[#1877F2] hover:text-white
+              transition-all duration-300 transform hover:-translate-y-1 hover:scale-110 shadow-sm hover:shadow-md">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M22 12a10 10 0 10-11.5 9.88v-6.99H8v-2.89h2.5V9.41c0-2.47 1.47-3.84 3.72-3.84 1.08 0 2.2.19 2.2.19v2.42h-1.24c-1.22 0-1.6.76-1.6 1.54v1.84H17l-.4 2.89h-2.62v6.99A10 10 0 0022 12z" />
+              </svg>
+            </a>
+
+          </div>
+
+        </div><!-- Quick Links -->
+        <div>
+          <h4 class="font-semibold text-[var(--color-text)] mb-6">Quick Links</h4>
+          <ul class="space-y-4">
+            <li><a href="index.html"
+                class="text-slate-600 dark:text-slate-300 hover:text-[#10b981] transition-colors">Home</a></li>
+            <li><a href="about.html"
+                class="text-slate-600 dark:text-slate-300 hover:text-[#10b981] transition-colors">About
+                Us</a></li>
+            <li><a href="services.html"
+                class="text-slate-600 dark:text-slate-300 hover:text-[#10b981] transition-colors">Services</a></li>
+            <li><a href="how-it-works.html"
+                class="text-slate-600 dark:text-slate-300 hover:text-[#10b981] transition-colors">How It Works</a>
+            </li>
+          </ul>
+        </div><!-- Resources -->
+        <div>
+          <h4 class="font-semibold text-[var(--color-text)] mb-6">Resources</h4>
+          <ul class="space-y-4">
+            <li><a href="resources.html"
+                class="text-slate-600 dark:text-slate-300 hover:text-[#10b981] transition-colors">Career Paths</a>
+            </li>
+            <li><a href="#" class="text-slate-600 dark:text-slate-300 hover:text-[#10b981] transition-colors">Blog</a>
+            </li>
+            <li><a href="ai-counselor.html"
+                class="text-slate-600 dark:text-slate-300 hover:text-[#10b981] transition-colors">AI Counselor</a>
+            </li>
+            <li><a href="contact.html"
+                class="text-slate-600 dark:text-slate-300 hover:text-[#10b981] transition-colors">Contact</a></li>
+          </ul>
+        </div><!-- Legal -->
+        <div>
+          <h4 class="font-semibold text-[var(--color-text)] mb-6">Legal</h4>
+          <ul class="space-y-4">
+            <li><a href="#" class="text-slate-600 dark:text-slate-300 hover:text-[#10b981] transition-colors">Privacy
+                Policy</a></li>
+            <li><a href="#" class="text-slate-600 dark:text-slate-300 hover:text-[#10b981] transition-colors">Terms
+                &amp; Conditions</a>
+            </li>
+            <li><a href="#" class="text-slate-600 dark:text-slate-300 hover:text-[#10b981] transition-colors">Cookie
+                Policy</a></li>
+          </ul>
+        </div>
+      </div><!-- Bottom Bar -->
+      <div
+        class="pt-8 border-t border-[var(--color-border)] flex flex-col md:flex-row items-center justify-between gap-4">
+        <p class="text-slate-600 dark:text-slate-300 text-sm">© 2025 Careerly. All rights reserved.</p>
+        <p class="text-slate-600 dark:text-slate-300 text-sm">Smart Career Guidance for Your Future</p>
+      </div>
+    </div>
+  </footer>
+  </div>
+
+  <script src="auth.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
